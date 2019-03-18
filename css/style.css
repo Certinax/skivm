@@ -1,0 +1,199 @@
+/* CSS VARIABLES */
+:root {
+  --primary: rgb(1, 11, 39);
+  --dark: rgb(1, 103, 255);
+  --light: rgb(235, 235, 235);
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary);
+}
+
+body {
+  background: rgb(240, 240, 240);
+  margin: 30px 50px;
+  line-height: 1.4;
+}
+
+.btn {
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+/* Navigation */
+.main-nav ul {
+  display: grid;
+  grid-gap: 20px;
+  padding: 0;
+  list-style: none;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.main-nav a {
+  background: var(--primary);
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  text-align: center;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+  background: var(--dark);
+  color: var(--light);
+}
+
+/* Top Container */
+.top-container {
+  display: grid;
+  grid-template-areas: "showcase";
+}
+
+/* Showcase */
+.showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: url(../img/showcase.png);
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.showcase h1 {
+  font-size: 4rem;
+  margin-bottom: 0;
+  color: var(--light);
+}
+
+.showcase p {
+  font-size: 1.3rem;
+  margin-top: 0;
+  color: var(--light);
+}
+
+/* Boxes */
+.boxes {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.box {
+  background: var(--primary);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow);
+  color: var(--light);
+}
+
+/* Info */
+.info {
+  background: var(--primary);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 3rem;
+  color: var(--light);
+}
+
+/* Table */
+.table {
+  border-collapse: collapse;
+}
+
+.table td,
+.table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #ddd;
+}
+
+.table th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: left;
+  background-color: #78a979;
+  color: white;
+}
+
+/* Oppgave */
+.oppgave {
+  display: grid;
+  box-shadow: var(--shadow);
+  width: 100%;
+  justify-self: center;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.oppgave p {
+  color: var(--primary);
+}
+
+.oppgave a {
+  width: 200px;
+  box-shadow: var(--shadow);
+}
+
+.oppgave a:hover {
+  background-color: var(--dark2);
+  box-shadow: var(--shadow2);
+  transition: ease 0.1s;
+}
+
+.oppgave .btn {
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+.oppgave .btn:hover {
+  background-color: var(--dark);
+  box-shadow: var(--shadow2);
+  transition: ease 0.1s;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  background: var(--primary);
+  color: var(--light);
+  text-align: center;
+  padding: 1rem;
+}
