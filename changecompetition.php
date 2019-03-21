@@ -53,12 +53,12 @@ include('getfromdatabase.php');
                     echo "<form action='' method='post'>
                         <h2>Øvelse</h2>
                         Tidspunkt:<br />
-                        <input type='text' name='time' value='$comp->time'/><br />
+                        <input type='text' name='time' value='$comp->Time'/><br />
                         Type øvelse:<br />
-                        <input type='text' name='type' value='$comp->type'/><br />
+                        <input type='text' name='type' value='$comp->Type'/><br />
                         Plass:<br />
-                        <input type='text' name='place' value='$comp->place' /><br />
-                        <button name='change' value='".$_SESSION['competitionID']."'>Endre</button>
+                        <input type='text' name='place' value='$comp->Place' /><br />
+                        <button name='change' class='btn' value='".$_SESSION['competitionID']."'>Endre</button>
                     </form";
                 }
             ?>  
