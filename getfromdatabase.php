@@ -94,13 +94,11 @@
                 <td>".$row->Type."</td>
                 <td>".$row->Place."</td>
                 <td>
-                    $row->Id
                     <form action='competitioninfo.php' method='post'>
                         <button class='btn' name='competition' value='".$row->Id."'>Info</button>
                     </form>
                 </td>
                 <td>
-                    $row->Id
                     <form action='changecompetition.php' method='post'>
                         <button class='btn' name='change' value='".$row->Id."'>Endre</button>
                     </form>
