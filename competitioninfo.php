@@ -34,8 +34,8 @@ include('getfromdatabase.php');
 
                 if(!empty($_POST['competition']) || !empty($_SESSION['competitionID'])) {
                     if(!empty($_POST['athlete'])) {
-                        $_SESSION['competitionID'] = $_POST['competition'];
                     }
+                    $_SESSION['competitionID'] = $_POST['competition'];
 
                     $competition = getCompetition($_SESSION['competitionID']);
 
