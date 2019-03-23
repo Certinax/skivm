@@ -111,10 +111,10 @@ include("getfromdatabase.php");
 
         <!-- Info section -->
         <section class="info">
-            <img src="img/business.jpeg" alt="WorkPic">
+            <img src="img/seefeld2019LQ.jpeg" alt="Seefeldbilde">
             <div>
-                <h2>Oppsummering av oblig</h2>
-                <p>Fyll inn erfaring/utfordringer osv...</p>
+                <h2>Skivm i Seefeld i Tirrol, Østerrike 2019</h2>
+                <p>Skivm ble arrangert i Seefeld fra 20. februar til 3. mars 2019. Dette var andre gang skivm ble arrangert i denne byen, sist gang var i 1985.</p>
             </div>
         </section>
 
