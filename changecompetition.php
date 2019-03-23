@@ -59,7 +59,7 @@ include('getfromdatabase.php');
                         Plass:<br />
                         <input type='text' name='place' value='$comp->Place' /><br />
                         <button name='change' class='btn' value='".$_SESSION['competitionID']."'>Endre</button>
-                    </form";
+                    </form>";
                 }
             ?>  
         </div>

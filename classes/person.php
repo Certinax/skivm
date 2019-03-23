@@ -41,7 +41,7 @@ class Spectator extends Person {
         } elseif($db->affected_rows == 0) {
             echo "Query completed, but no person added";
         } else {
-            echo "Person is added";
+            echo "Tilskuer er lagt til";
         }
 
         $db->close();
@@ -76,7 +76,7 @@ class Athlete extends Person {
         } elseif($db->affected_rows == 0) {
             echo "Query completed, but no person added";
         } else {
-            echo "Person is added";
+            echo "Utøver er lagt til";
         }
 
         $db->close();

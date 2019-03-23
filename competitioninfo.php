@@ -39,16 +39,30 @@ include('getfromdatabase.php');
 
                     $competition = getCompetition($_SESSION['competitionID']);
 
-                    echo "Tid: ";
-                    echo $competition->Time;
-                    echo "<br />Type øvelse: ";
-                    echo $competition->Type;
-                    echo "<br />Sted: ";
-                    echo $competition->Place;
-
-                    echo "<h2>Påmeldte på øvelse</h2>";
+                    // echo "Tid: ";
+                    // echo $competition->Time;
+                    // echo "<br />Type øvelse: ";
+                    // echo $competition->Type;
+                    // echo "<br />Sted: ";
+                    // echo $competition->Place;
 
                     echo "<table class='table'>
+                        <tr><h2>Distanse</h2></tr>
+                        <tr>
+                            <th>Tid</th>
+                            <th>Type øvelse</th>
+                            <th>Sted</th>
+                        </tr>
+                        <tr>
+                            <td>$competition->Time</td>
+                            <td>$competition->Type</td>
+                            <td>$competition->Place</td>
+                        </tr>
+                    ";
+
+
+                    echo "<table class='table'>
+                        <tr><h2>Påmeldte til øvelsen</h2></tr>
                         <tr>
                             <th>Fornavn</th>
                             <th>Etternavn</th>

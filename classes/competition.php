@@ -26,7 +26,7 @@ class Competition {
         } elseif($db->affected_rows == 0) {
             echo "Query completed, but no person added";
         } else {
-            echo "Person is added";
+            echo "Øvelse er lagt til";
         }
 
         $db->close();

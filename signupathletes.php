@@ -47,25 +47,31 @@ include('getfromdatabase.php');
 
                     $athlete = getAthlete($_SESSION['athleteID']);
 
-                    echo "<h2>Utøver</h2>";
-                    echo "Fornavn: ";
-                    echo $athlete->Firstname;
-                    echo "<br />Etternavn: ";
-                    echo $athlete->Lastname;
-                    echo "<br />Adresse: ";
-                    echo $athlete->Address;
-                    echo "<br />Postnummer: ";
-                    echo $athlete->Zip;
-                    echo "<br />Poststed: ";
-                    echo $athlete->City;
-                    echo "<br />Telefon: ";
-                    echo $athlete->Phone;
-                    echo "<br />Nasjonalitet: ";
-                    echo $athlete->Nationality;
-
-                    echo "<h2>Påmeldte øvelser</h2>";
+                    echo "<table class='table'>
+                        <tr><h2>Utøver</h2></tr>
+                        <tr>
+                            <th>Fornavn</th>
+                            <th>Etternavn</th>
+                            <th>Adresse</th>
+                            <th>Postnummer</th>
+                            <th>Poststed</th>
+                            <th>Telefon</th>
+                            <th>Nasjonalitet</th>
+                        </tr>
+                        <tr>
+                            <td>$athlete->Firstname</td>
+                            <td>$athlete->Lastname</td>
+                            <td>$athlete->Address</td>
+                            <td>$athlete->Zip</td>
+                            <td>$athlete->City</td>
+                            <td>$athlete->Phone</td>
+                            <td>$athlete->Nationality</td>
+                        </tr>
+                    ";
+                        
 
                     echo "<table class='table'>
+                        <tr><h2>Påmeldte øvelser</h2></tr>
                         <tr>
                             <th>Tid</th>
                             <th>Type</th>
