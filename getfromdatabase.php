@@ -14,7 +14,7 @@
         if(!$result) {
             echo "Failed to retrieve data from database";
         } elseif($db->affected_rows == 0) {
-            echo "No athletes to get";
+            echo "Ingen utøver(e) å hente";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -52,7 +52,7 @@
         if(!$result) {
             echo "Failed to retrieve data from database";
         } elseif($db->affected_rows == 0) {
-            echo "No spectators to get";
+            echo "Ingen tilskuer(e) å hente";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -85,7 +85,7 @@
         if(!$result) {
             echo "Failed to retrieve data from database";
         } elseif($db->affected_rows == 0) {
-            echo "No competitions to get";
+            echo "Ingen øvelse(r) å hente";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -126,7 +126,7 @@
         if(!$result) {
             echo "Failed to retrieve data from database";
         } elseif($db->affected_rows == 0) {
-            echo "No athletes to get";
+            echo "Ingen utøver(e) å hente";
         } else {
             return $result->fetch_object();
         }
@@ -280,7 +280,7 @@
         if(!$result) {
             echo "Failed to update database";
         } elseif($db->affected_rows == 0) {
-            echo "The athlete is signed up for all competitions";
+            echo "Utøveren er meldt på alle øvelser";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -317,7 +317,7 @@
         if(!$result) {
             echo "Failed to update database";
         } elseif($db->affected_rows == 0) {
-            echo "No athletes are signed up for this competition";
+            echo "Ingen utøvere er meldt på denne øvelsen";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
