@@ -243,7 +243,7 @@
         if(!$result) {
             echo "Failed to update database";
         } elseif($db->affected_rows == 0) {
-            echo "The athlete have not signed up for any competition yet";
+            echo "Utøveren er ikke påmeldt noen øvelser enda";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";

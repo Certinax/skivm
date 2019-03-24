@@ -102,13 +102,9 @@ include('getfromdatabase.php');
             ?>  
         </div>
 
-
-        
-
-
         <!-- Info section -->
         <section class="info">
-            <img src="img/business.jpeg" alt="WorkPic">
+            <img src="img/skicourse.jpg" alt="Skicourse">
             <div>
                 <h2>Oppsummering av oblig</h2>
                 <p>Fyll inn erfaring/utfordringer osv...</p>
