@@ -94,7 +94,6 @@ include('classes/person.php');
             </div>
         </section>
 
-
         <!-- Footer -->
         <footer><p>Certinax &copy; 2019</p></footer>
     </div>

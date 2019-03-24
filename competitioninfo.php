@@ -81,8 +81,6 @@ include('getfromdatabase.php');
                 
                     echo "</table>";
                 }
-            
-            
             ?>  
         </div>
 
@@ -94,7 +92,6 @@ include('getfromdatabase.php');
                 <p>Dette bildet eier jeg ikke rettighetene til. Viser til Seefeld sine nettsider.</p>
             </div>
         </section>
-
 
         <!-- Footer -->
         <footer><p>Certinax &copy; 2019</p></footer>

@@ -14,7 +14,6 @@ $db->multi_query($commands);
 include("getfromdatabase.php");
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

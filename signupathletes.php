@@ -37,7 +37,6 @@ include('getfromdatabase.php');
             </nav>
         </div>
 
-
         <div class="oppgave">
             <h1>Meld på utøver</h1>
             <?php

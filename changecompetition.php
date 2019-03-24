@@ -37,7 +37,6 @@ include('getfromdatabase.php');
             </nav>
         </div>
 
-
         <div class="oppgave">
             <?php
                 if(!empty($_POST['change'])) {

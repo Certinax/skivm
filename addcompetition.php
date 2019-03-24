@@ -36,7 +36,6 @@ include('classes/competition.php');
             </nav>
         </div>
 
-
         <div class="oppgave">
             <h1>Registrering av øvelse</h1>
             <?php
@@ -84,7 +83,6 @@ include('classes/competition.php');
                 <p>Bildet er hentet fra <a id="no-decoration" target="_blank" href="https://www.seefeld2019.com/en/presse-rubrik/press-images">seefeld2019.com</a> sine nettsider.</p>
             </div>
         </section>
-
 
         <!-- Footer -->
         <footer><p>Certinax &copy; 2019</p></footer>

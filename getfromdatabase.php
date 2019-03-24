@@ -1,11 +1,11 @@
 <?php
+include("db/connection.php");
+?>
+<?php
 
     function showAthletes() {
-
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        
+        $db = connectToDatabase();
 
         $stmt = "select * from athlete";
 
