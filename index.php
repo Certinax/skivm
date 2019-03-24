@@ -23,6 +23,7 @@ include("getfromdatabase.php");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Velkommen</title>
 </head>
 <body>
@@ -113,7 +114,7 @@ include("getfromdatabase.php");
         <section class="info">
             <img src="img/seefeld2019LQ.jpeg" alt="Seefeldbilde">
             <div>
-                <h2>Ski-VM i Seefeld i Tirrol, Østerrike 2019</h2>
+                <h2>Ski-VM i Seefeld i Tirol, Østerrike 2019</h2>
                 <p>Ski-VM ble arrangert i Seefeld fra 20. februar til 3. mars 2019. Dette var andre gang det ble arrangert i denne byen, sist gang var i 1985.</p>
             </div>
         </section>
