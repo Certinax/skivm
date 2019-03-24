@@ -10,5 +10,5 @@ Publikum og utøvere må kunne registrere seg med personlig informasjon. Videre 
 
 ### Gjenstående oppgaver TODO's
 
-- [] Koble publikum til øvelser
+- [-] Koble publikum til øvelser
 - [] Kunne slette øvelser
