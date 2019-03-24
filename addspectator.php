@@ -24,6 +24,18 @@ include('classes/person.php');
             </header>
         </div>
 
+        <!-- Navigation bar -->
+        <div class="main-nav">
+            <nav>
+                <ul>
+                    <a href="index.php">Hjem</a>
+                    <a href="addathlete.php">Registrere utøver</a>
+                    <a href="addspectator.php" id="btn-active">Registrere tilskuer</a>
+                    <a href="addcompetition.php">Registrere øvelse</a>
+                </ul>
+            </nav>
+        </div>
+
         <div class="oppgave">
             <h1>Registrering av tilskuer</h1>
             <?php

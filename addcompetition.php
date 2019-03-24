@@ -24,6 +24,18 @@ include('classes/competition.php');
             </header>
         </div>
 
+        <!-- Navigation bar -->
+        <div class="main-nav">
+            <nav>
+                <ul>
+                    <a href="index.php">Hjem</a>
+                    <a href="addathlete.php">Registrere utøver</a>
+                    <a href="addspectator.php">Registrere tilskuer</a>
+                    <a href="addcompetition.php" id="btn-active">Registrere øvelse</a>
+                </ul>
+            </nav>
+        </div>
+
 
         <div class="oppgave">
             <h1>Registrering av øvelse</h1>

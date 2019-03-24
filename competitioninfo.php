@@ -25,6 +25,18 @@ include('getfromdatabase.php');
             </header>
         </div>
 
+        <!-- Navigation bar -->
+        <div class="main-nav">
+            <nav>
+                <ul>
+                    <a href="index.php">Hjem</a>
+                    <a href="addathlete.php">Registrere utøver</a>
+                    <a href="addspectator.php">Registrere tilskuer</a>
+                    <a href="addcompetition.php">Registrere øvelse</a>
+                </ul>
+            </nav>
+        </div>
+
         <div class="oppgave">
             <?php
                 if(!empty($_POST['competition']) || !empty($_SESSION['competitionID'])) {

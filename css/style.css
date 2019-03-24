@@ -58,10 +58,14 @@ img {
   text-decoration: none;
   padding: 0.8rem;
   text-align: center;
-  color: var(--dark);
+  color: var(--light);
   text-transform: uppercase;
   font-size: 1.1rem;
   box-shadow: var(--shadow);
+}
+
+#btn-active {
+  background: var(--dark);
 }
 
 .main-nav a:hover {
