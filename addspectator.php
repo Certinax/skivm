@@ -20,11 +20,9 @@ include('classes/person.php');
         <!-- Top container -->
         <div class="top-container">
             <header class="showcase">
-                <h1>Legg til tilskuer - DATA1700 - Webprogrammering</h1>
-                <p>S319217 - Mathias Lund Ahrn</p>
+                <h1>Ski-VM Sefeeld - Østerrike 2019</h1>
             </header>
         </div>
-
 
         <div class="oppgave">
             <h1>Registrering av tilskuer</h1>

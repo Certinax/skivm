@@ -105,8 +105,8 @@ include('getfromdatabase.php');
         <section class="info">
             <img src="img/skicourse.jpg" alt="Skicourse">
             <div>
-                <h2>Oppsummering av oblig</h2>
-                <p>Fyll inn erfaring/utfordringer osv...</p>
+                <h2>Løypetrasé i Seefeld</h2>
+                <p>Dette bildet eier jeg ikke rettighetene til. Viser til Seefeld sine nettsider.</p>
             </div>
         </section>
 
