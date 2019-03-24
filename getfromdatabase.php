@@ -12,9 +12,9 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Ingen utøver(e) å hente</p>";
+            echo "<p class='cancelation'>Ingen utøver(e) å hente</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -47,9 +47,9 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Ingen tilskuer(e) å hente</p>";
+            echo "<p class='cancelation'>Ingen tilskuer(e) å hente</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -77,9 +77,9 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Ingen øvelse(r) å hente</p>";
+            echo "<p class='cancelation'>Ingen øvelse(r) å hente</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -115,9 +115,9 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Ingen utøver(e) å hente</p>";
+            echo "<p class='cancelation'>Ingen utøver(e) å hente</p>";
         } else {
             return $result->fetch_object();
         }
@@ -134,9 +134,9 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>No athletes to get</p>";
+            echo "<p class='cancelation'>Ingen utøvere å hente</p>";
         } else {
             return $result->fetch_object();
         }
@@ -154,11 +154,11 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Ingen utøver lagt til</p>";
+            echo "<p class='cancelation'>Ingen utøver lagt til</p>";
         } else {
-            echo "<p>Utøver lagt til</p>";
+            echo "<p class='confirmation'>Utøver lagt til</p>";
         }
 
         $db->close();
@@ -174,11 +174,11 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke fjerne fra databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke fjerne fra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Ingen utøver fjernet</p>";
+            echo "<p class='cancelation'>Ingen utøver fjernet</p>";
         } else {
-            echo "<p>Utøver fjernet</p>";
+            echo "<p class='cancelation'>Utøver fjernet</p>";
         }
 
         $db->close();
@@ -195,11 +195,11 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Ingen rader ble oppdatert</p>";
+            echo "<p class='cancelation'>Ingen rader ble oppdatert</p>";
         } else {
-            echo "<p>Øvelse oppdatert</p>";
+            echo "<p class='confirmation'>Øvelse oppdatert</p>";
         }
 
         $db->close();
@@ -217,9 +217,9 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Utøveren er ikke påmeldt noen øvelser enda</p>";
+            echo "<p class='cancelation'>Utøveren er ikke påmeldt noen øvelser enda</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -251,9 +251,9 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Utøveren er meldt på alle øvelser</p>";
+            echo "<p class='cancelation'>Utøveren er meldt på alle øvelser</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -285,9 +285,9 @@ include("db/connection.php");
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
+            echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p>Ingen utøvere er meldt på denne øvelsen</p>";
+            echo "<p class='cancelation'>Ingen utøvere er meldt på denne øvelsen</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
