@@ -8,6 +8,7 @@ include('db/spectator_db.php');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@ include('db/spectator_db.php');
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Meld på utøver</title>
 </head>
+
 <body>
     <!-- Wrapper -->
     <div class="wrapper">
@@ -44,24 +46,24 @@ include('db/spectator_db.php');
             <h1>Meld på utøver</h1>
             <?php
 
-                if(!empty($_SESSION['athleteID'])) {
-                    if(!empty($_POST['signup'])) {
-                        addAthleteToCompetition($_SESSION['athleteID'], $_POST['signup']);
-                    }
-
-                    if(!empty($_POST['signoff'])) {
-                        deleteAthleteFromCompetition($_SESSION['athleteID'], $_POST['signoff']);
-                    }
+            if (!empty($_SESSION['athleteID'])) {
+                if (!empty($_POST['signup'])) {
+                    addAthleteToCompetition($_SESSION['athleteID'], $_POST['signup']);
                 }
 
-                if(!empty($_POST['athlete']) || !empty($_SESSION['athleteID'])) {
-                    if(!empty($_POST['athlete'])) {
-                        $_SESSION['athleteID'] = $_POST['athlete'];
-                    }
+                if (!empty($_POST['signoff'])) {
+                    deleteAthleteFromCompetition($_SESSION['athleteID'], $_POST['signoff']);
+                }
+            }
 
-                    $athlete = getAthlete($_SESSION['athleteID']);
+            if (!empty($_POST['athlete']) || !empty($_SESSION['athleteID'])) {
+                if (!empty($_POST['athlete'])) {
+                    $_SESSION['athleteID'] = $_POST['athlete'];
+                }
 
-                    echo "<table class='table'>
+                $athlete = getAthlete($_SESSION['athleteID']);
+
+                echo "<table class='table'>
                         <tr><h2>Utøver</h2></tr>
                         <tr>
                             <th>Fornavn</th>
@@ -82,9 +84,9 @@ include('db/spectator_db.php');
                             <td>$athlete->Nationality</td>
                         </tr>
                     ";
-                        
 
-                    echo "<table class='table'>
+
+                echo "<table class='table'>
                         <tr><h2>Påmeldte øvelser</h2></tr>
                         <tr>
                             <th>Tid</th>
@@ -92,14 +94,14 @@ include('db/spectator_db.php');
                             <th>Plass</th>
                             <th>Endre</th>
                         </tr>";
-                    
-                    competitionSignedUpFor($_SESSION['athleteID']);
 
-                    echo "</table>";
+                competitionSignedUpFor($_SESSION['athleteID']);
 
-                    echo "<h2>Ikke påmeldte øvelser<h3>";
+                echo "</table>";
 
-                    echo "<table class='table'>
+                echo "<h2>Ikke påmeldte øvelser<h3>";
+
+                echo "<table class='table'>
                         <tr>
                             <th>Tid</th>
                             <th>Type</th>
@@ -107,11 +109,11 @@ include('db/spectator_db.php');
                             <th>Endre</th>
                         </tr>";
 
-                    competitionNotSignedUpFor($_SESSION['athleteID']);
+                competitionNotSignedUpFor($_SESSION['athleteID']);
 
-                    echo "</table>";
-                }
-            ?>  
+                echo "</table>";
+            }
+            ?>
         </div>
 
         <!-- Info section -->
@@ -125,7 +127,10 @@ include('db/spectator_db.php');
 
 
         <!-- Footer -->
-        <footer><p>Certinax &copy; 2019</p></footer>
+        <footer>
+            <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
+        </footer>
     </div>
 </body>
-</html>
+
+</html> 

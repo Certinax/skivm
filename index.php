@@ -16,6 +16,7 @@ include("db/getfromdatabase.php");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +26,7 @@ include("db/getfromdatabase.php");
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Velkommen</title>
 </head>
+
 <body>
     <!-- Wrapper -->
     <div class="wrapper">
@@ -92,7 +94,7 @@ include("db/getfromdatabase.php");
                 </table>
             </div>
         </div>
-       
+
         <div class="mid-container">
             <div class="oppgave">
                 <h1>Liste over øvelser</h1>
@@ -120,7 +122,10 @@ include("db/getfromdatabase.php");
 
 
         <!-- Footer -->
-        <footer><p>Certinax &copy; 2019</p></footer>
+        <footer>
+            <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
+        </footer>
     </div>
 </body>
-</html>
+
+</html> 

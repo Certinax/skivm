@@ -4,6 +4,7 @@ include('classes/competition.php');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@ include('classes/competition.php');
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Legg til øvelse</title>
 </head>
+
 <body>
     <!-- Wrapper -->
     <div class="wrapper">
@@ -39,42 +41,43 @@ include('classes/competition.php');
         <div class="oppgave">
             <h1>Registrering av øvelse</h1>
             <?php
-            if(!empty($_POST["time"]) &&
+            if (
+                !empty($_POST["time"]) &&
                 !empty($_POST["type"]) &&
                 !empty($_POST["place"]) &&
-                !empty($_POST["submit"])) {
+                !empty($_POST["submit"])
+            ) {
 
-                    $time = $_POST["time"];
-                    $type = $_POST["type"];
-                    $place = $_POST["place"];
+                $time = $_POST["time"];
+                $type = $_POST["type"];
+                $place = $_POST["place"];
 
-                    $competition = new Competition($time, $type, $place);
-                    $competition->addToDatabase();
-                } 
-                else {
-                    if(!empty($_POST["submit"])) {
-                        echo "<p style='color:red'>*Du må fylle ut alle felter</p>";
-                    } else {
-                        echo "<p>Fyll ut informasjon</p>";
-                    }
+                $competition = new Competition($time, $type, $place);
+                $competition->addToDatabase();
+            } else {
+                if (!empty($_POST["submit"])) {
+                    echo "<p style='color:red'>*Du må fylle ut alle felter</p>";
+                } else {
+                    echo "<p>Fyll ut informasjon</p>";
                 }
+            }
             ?>
             <div class="form-style">
-            <form action="" method="post">
-            <fieldset>
-                <legend>Registreringsskjema</legend>
-                <input type="text" name="time" placeholder="Tidspunkt">
-                <input type="text" name="type" placeholder="Distanse">
-                <input type="text" name="place" placeholder="Sted">
-                <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
-                <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
-            </fieldset>
-            </form>
+                <form action="" method="post">
+                    <fieldset>
+                        <legend>Registreringsskjema</legend>
+                        <input type="text" name="time" placeholder="Tidspunkt">
+                        <input type="text" name="type" placeholder="Distanse">
+                        <input type="text" name="place" placeholder="Sted">
+                        <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
+                        <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
+                    </fieldset>
+                </form>
             </div>
         </div>
 
 
-    
+
         <!-- Info section -->
         <section class="info">
             <img src="img/racetrack_web.jpg" alt="WorkPic">
@@ -85,7 +88,10 @@ include('classes/competition.php');
         </section>
 
         <!-- Footer -->
-        <footer><p>Certinax &copy; 2019</p></footer>
+        <footer>
+            <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
+        </footer>
     </div>
 </body>
-</html>
+
+</html> 

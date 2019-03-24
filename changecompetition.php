@@ -8,6 +8,7 @@ include('db/spectator_db.php');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@ include('db/spectator_db.php');
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Endre øvelse</title>
 </head>
+
 <body>
     <!-- Wrapper -->
     <div class="wrapper">
@@ -43,39 +45,39 @@ include('db/spectator_db.php');
         <div class="oppgave">
             <?php
 
-                if(!empty($_POST['change'])) {
-                    if(!empty($_POST['time']) &&
-                        !empty($_POST['type']) &&
-                        !empty($_POST['place'])) {
+            if (!empty($_POST['change'])) {
+                if (
+                    !empty($_POST['time']) &&
+                    !empty($_POST['type']) &&
+                    !empty($_POST['place'])
+                ) {
 
-                        $id = $_POST['change'];
-                        $time = $_POST['time'];
-                        $type = $_POST['type'];
-                        $place = $_POST['place'];
+                    $id = $_POST['change'];
+                    $time = $_POST['time'];
+                    $type = $_POST['type'];
+                    $place = $_POST['place'];
 
-                        updateCompetition($id, $time, $type, $place);
-                    }       
+                    updateCompetition($id, $time, $type, $place);
                 }
+            }
 
-                if(!empty($_POST['delete'])) {
-                    $id = $_POST['delete'];
-                    deleteCompetition($id);
-                    updateCompetitionSpectator($id);
-                    updateCompetitionAthlete($id);
-                }
+            if (!empty($_POST['delete'])) {
+                $id = $_POST['delete'];
+                deleteCompetition($id);
+                updateCompetitionSpectator($id);
+                updateCompetitionAthlete($id);
+            }
 
-                if(empty($_POST['change'])) {
-                    
-                } else if(!empty($_POST['change']) || !empty($_SESSION['competitionID'])) {
-                    $_SESSION['competitionID'] = $_POST['change'];
+            if (empty($_POST['change'])) { } else if (!empty($_POST['change']) || !empty($_SESSION['competitionID'])) {
+                $_SESSION['competitionID'] = $_POST['change'];
 
-                    $competition = getCompetition($_SESSION['competitionID']);
+                $competition = getCompetition($_SESSION['competitionID']);
 
-                    echo "
+                echo "
                         <h1>Endre øvelse - $competition->Type</h1>
                     ";
 
-                    echo "
+                echo "
                     <div class='form-style'>
                     <form action='' method='post'>
                     <fieldset>
@@ -86,15 +88,15 @@ include('db/spectator_db.php');
                         <input type='text' name='type' value='$competition->Type'/>
                         <label>Plass:</label>
                         <input type='text' name='place' value='$competition->Place' />
-                        <button name='change' class='btn' value='".$_SESSION['competitionID']."'>Endre</button>
-                        <button name='delete' class='btn-danger' value='".$_SESSION['competitionID']."'>Slett</button>
+                        <button name='change' class='btn' value='" . $_SESSION['competitionID'] . "'>Endre</button>
+                        <button name='delete' class='btn-danger' value='" . $_SESSION['competitionID'] . "'>Slett</button>
                         <a href='index.php'><button type='button' class='btn-cancel' value='button' name='button'>Avbryt</button></a>
                     </fieldset>
                     </form>
                     </div>
                     ";
-                }
-            ?>  
+            }
+            ?>
         </div>
 
         <!-- Info section -->
@@ -108,7 +110,10 @@ include('db/spectator_db.php');
 
 
         <!-- Footer -->
-        <footer><p>Certinax &copy; 2019</p></footer>
+        <footer>
+            <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
+        </footer>
     </div>
 </body>
-</html>
+
+</html> 

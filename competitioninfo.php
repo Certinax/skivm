@@ -8,6 +8,7 @@ include('db/spectator_db.php');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@ include('db/spectator_db.php');
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Øvelseinfo</title>
 </head>
+
 <body>
     <!-- Wrapper -->
     <div class="wrapper">
@@ -42,16 +44,16 @@ include('db/spectator_db.php');
 
         <div class="oppgave">
             <?php
-                if(!empty($_POST['competition']) || !empty($_SESSION['competitionID'])) {
-                    $_SESSION['competitionID'] = $_POST['competition'];
+            if (!empty($_POST['competition']) || !empty($_SESSION['competitionID'])) {
+                $_SESSION['competitionID'] = $_POST['competition'];
 
-                    $competition = getCompetition($_SESSION['competitionID']);
+                $competition = getCompetition($_SESSION['competitionID']);
 
-                    echo "
+                echo "
                         <h1>Øvelse - $competition->Type</h1>
                     ";
 
-                    echo "
+                echo "
                     <table class='table'>
                         <tr><h2>Distanse</h2></tr>
                         <tr>
@@ -68,7 +70,7 @@ include('db/spectator_db.php');
                     ";
 
 
-                    echo "<table class='table'>
+                echo "<table class='table'>
                         <tr><h2>Påmeldte utøvere til øvelsen</h2></tr>
                         <tr>
                             <th>Fornavn</th>
@@ -79,12 +81,12 @@ include('db/spectator_db.php');
                             <th>Telefon</th>
                             <th>Nasjonalitet</th>
                         </tr>";
-                    
-                    athletesSignedUp($_SESSION['competitionID']);
-                
-                    echo "</table>";
 
-                    echo "<table class='table'>
+                athletesSignedUp($_SESSION['competitionID']);
+
+                echo "</table>";
+
+                echo "<table class='table'>
                         <tr><h2>Påmeldte tilskuere til øvelsen</h2></tr>
                         <tr>
                             <th>Fornavn</th>
@@ -95,12 +97,12 @@ include('db/spectator_db.php');
                             <th>Telefon</th>
                             <th>Billettype</th>
                         </tr>";
-                    
-                    spectatorsSignedUp($_SESSION['competitionID']);
-                
-                    echo "</table>";
-                }
-            ?>  
+
+                spectatorsSignedUp($_SESSION['competitionID']);
+
+                echo "</table>";
+            }
+            ?>
         </div>
 
         <!-- Info section -->
@@ -113,7 +115,10 @@ include('db/spectator_db.php');
         </section>
 
         <!-- Footer -->
-        <footer><p>Certinax &copy; 2019</p></footer>
+        <footer>
+            <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
+        </footer>
     </div>
 </body>
-</html>
+
+</html> 

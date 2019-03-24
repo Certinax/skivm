@@ -4,6 +4,7 @@ include('classes/person.php');
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@ include('classes/person.php');
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Legg til tilskuer </title>
 </head>
+
 <body>
     <!-- Wrapper -->
     <div class="wrapper">
@@ -39,49 +41,50 @@ include('classes/person.php');
         <div class="oppgave">
             <h1>Registrering av tilskuer</h1>
             <?php
-            if(!empty($_POST["firstname"]) &&
+            if (
+                !empty($_POST["firstname"]) &&
                 !empty($_POST["lastname"]) &&
                 !empty($_POST["address"]) &&
                 !empty($_POST["zipcode"]) &&
                 !empty($_POST["city"]) &&
                 !empty($_POST["phone"]) &&
                 !empty($_POST["ticket"]) &&
-                !empty($_POST["submit"])) {
+                !empty($_POST["submit"])
+            ) {
 
-                    $fname = $_POST["firstname"];
-                    $lname = $_POST["lastname"];
-                    $address = $_POST["address"];
-                    $zipcode = $_POST["zipcode"];
-                    $city = $_POST["city"];
-                    $phone = $_POST["phone"];
-                    $ticket = $_POST["ticket"];
+                $fname = $_POST["firstname"];
+                $lname = $_POST["lastname"];
+                $address = $_POST["address"];
+                $zipcode = $_POST["zipcode"];
+                $city = $_POST["city"];
+                $phone = $_POST["phone"];
+                $ticket = $_POST["ticket"];
 
-                    $spectator = new Spectator($fname, $lname, $address, $zipcode, $city, $phone, $ticket);
-                    $spectator->addToDatabase();
-                } 
-                else {
-                    if(!empty($_POST["submit"])) {
-                        echo "<p style='color:red'>*Du må fylle ut alle felter</p>";
-                    } else {
-                        echo "<p>Fyll ut informasjon</p>";
-                    }
+                $spectator = new Spectator($fname, $lname, $address, $zipcode, $city, $phone, $ticket);
+                $spectator->addToDatabase();
+            } else {
+                if (!empty($_POST["submit"])) {
+                    echo "<p style='color:red'>*Du må fylle ut alle felter</p>";
+                } else {
+                    echo "<p>Fyll ut informasjon</p>";
                 }
-             ?>
+            }
+            ?>
             <div class="form-style">
-            <form action="" method="post">
-            <fieldset>
-                <legend>Registreringsskjema</legend>
-                <input type="text" name="firstname" placeholder="Fornavn">
-                <input type="text" name="lastname" placeholder="Etternavn">
-                <input type="text" name="address" placeholder="Adresse">
-                <input type="text" name="zipcode" placeholder="Postnummer">
-                <input type="text" name="city" placeholder="Poststed">
-                <input type="text" name="phone" placeholder="Telefonnr">
-                <input type="text" name="ticket" placeholder="Type billett">
-                <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
-                <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
-            </fieldset>
-            </form>
+                <form action="" method="post">
+                    <fieldset>
+                        <legend>Registreringsskjema</legend>
+                        <input type="text" name="firstname" placeholder="Fornavn">
+                        <input type="text" name="lastname" placeholder="Etternavn">
+                        <input type="text" name="address" placeholder="Adresse">
+                        <input type="text" name="zipcode" placeholder="Postnummer">
+                        <input type="text" name="city" placeholder="Poststed">
+                        <input type="text" name="phone" placeholder="Telefonnr">
+                        <input type="text" name="ticket" placeholder="Type billett">
+                        <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
+                        <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
+                    </fieldset>
+                </form>
             </div>
         </div>
 
@@ -89,13 +92,16 @@ include('classes/person.php');
         <section class="info">
             <img src="img/stadium_web.jpg" alt="WorkPic">
             <div>
-            <h2>Publikum</h2>
+                <h2>Publikum</h2>
                 <p>Bildet er hentet fra <a id="no-decoration" target="_blank" href="https://www.seefeld2019.com/en/presse-rubrik/press-images">seefeld2019.com</a> sine nettsider.</p>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer><p>Certinax &copy; 2019</p></footer>
+        <footer>
+            <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
+        </footer>
     </div>
 </body>
-</html>
+
+</html> 
