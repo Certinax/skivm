@@ -63,7 +63,7 @@ include('competition_db.php');
                 }
 
                 if(empty($_POST['change'])) {
-
+                    
                 } else if(!empty($_POST['change']) || !empty($_SESSION['competitionID'])) {
                     $_SESSION['competitionID'] = $_POST['change'];
 
