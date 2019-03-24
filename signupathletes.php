@@ -1,6 +1,9 @@
 <?php
 session_start();
-include('getfromdatabase.php');
+include('db/getfromdatabase.php');
+include('db/competition_db.php');
+include('db/athlete_db.php');
+include('db/spectator_db.php');
 ?>
 
 <!DOCTYPE html>

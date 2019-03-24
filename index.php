@@ -11,7 +11,7 @@ $db->multi_query($commands);
 ?>
 
 <?php
-include("getfromdatabase.php");
+include("db/getfromdatabase.php");
 ?>
 
 <!DOCTYPE html>
