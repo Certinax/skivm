@@ -50,30 +50,28 @@ include('classes/person.php');
                 } 
                 else {
                     if(!empty($_POST["submit"])) {
-                        echo "Du må fylle ut alle felter";
+                        echo "<p style='color:red'>Du må fylle ut alle felter</p>";
                     } else {
-                        echo "Fyll ut informasjon";
+                        echo "<p>Fyll ut informasjon</p>";
                     }
                 }
              ?>
-            <form id="regform" action="" method="post">
-                <br/>Fornavn:<br />
-                <input type="text" name="firstname"><br />
-                Etternavn:<br />
-                <input type="text" name="lastname"><br />
-                Adresse:<br />
-                <input type="text" name="address"><br />
-                Postnummer:<br />
-                <input type="text" name="zipcode"><br />
-                Poststed:<br />
-                <input type="text" name="city"><br />
-                Telefonnr:<br />
-                <input type="text" name="phone"><br />
-                Type billett:<br />
-                <input type="text" name="ticket"><br />
+            <div class="form-style">
+            <form action="" method="post">
+            <fieldset>
+                <legend>Registreringsskjema</legend>
+                <input type="text" name="firstname" placeholder="Fornavn">
+                <input type="text" name="lastname" placeholder="Etternavn">
+                <input type="text" name="address" placeholder="Adresse">
+                <input type="text" name="zipcode" placeholder="Postnummer">
+                <input type="text" name="city" placeholder="Poststed">
+                <input type="text" name="phone" placeholder="Telefonnr">
+                <input type="text" name="ticket" placeholder="Type billett">
                 <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
                 <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
+            </fieldset>
             </form>
+            </div>
         </div>
 
         <!-- Info section -->

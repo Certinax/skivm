@@ -42,9 +42,9 @@ include('classes/competition.php');
                 } 
                 else {
                     if(!empty($_POST["submit"])) {
-                        echo "Du må fylle ut alle felter";
+                        echo "<p style='color:red'>*Du må fylle ut alle felter</p>";
                     } else {
-                        echo "Fyll ut informasjon";
+                        echo "<p>Fyll ut informasjon</p>";
                     }
                 }
              ?>
@@ -62,9 +62,7 @@ include('classes/competition.php');
         </div>
 
 
-        
-
-
+    
         <!-- Info section -->
         <section class="info">
             <img src="img/business.jpeg" alt="WorkPic">
