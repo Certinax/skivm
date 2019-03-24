@@ -130,6 +130,11 @@ img {
   color: var(--light);
 }
 
+#no-decoration {
+  text-decoration: none;
+  color: var(--light);
+}
+
 /* Form-style */
 .oppgave .form-style {
   max-width: 500px;

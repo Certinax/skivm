@@ -66,10 +66,10 @@ include('classes/competition.php');
     
         <!-- Info section -->
         <section class="info">
-            <img src="img/business.jpeg" alt="WorkPic">
+            <img src="img/racetrack_web.jpg" alt="WorkPic">
             <div>
-                <h2>Oppsummering av oblig</h2>
-                <p>Fyll inn erfaring/utfordringer osv...</p>
+                <h2>Øvelser</h2>
+                <p>Bildet er hentet fra <a id="no-decoration" target="_blank" href="https://www.seefeld2019.com/en/presse-rubrik/press-images">seefeld2019.com</a> sine nettsider.</p>
             </div>
         </section>
 
