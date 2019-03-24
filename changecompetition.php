@@ -87,7 +87,7 @@ include('db/spectator_db.php');
                         <label>Plass:</label>
                         <input type='text' name='place' value='$competition->Place' />
                         <button name='change' class='btn' value='".$_SESSION['competitionID']."'>Endre</button>
-                        <button name='delete' class='btn' value='".$_SESSION['competitionID']."'>Slett</button>
+                        <button name='delete' class='btn-danger' value='".$_SESSION['competitionID']."'>Slett</button>
                         <a href='index.php'><button type='button' class='btn-cancel' value='button' name='button'>Avbryt</button></a>
                     </fieldset>
                     </form>

@@ -7,6 +7,7 @@
   --shadow2: 0 2px 9px rgba(104, 104, 104, 0.8);
   --cancel: rgb(208, 68, 68);
   --accept: rgb(58, 184, 58);
+  --danger: rgb(222, 204, 16);
 }
 
 html {
@@ -297,8 +298,18 @@ img {
   border: 0;
 }
 
+.oppgave .btn-danger {
+  margin-top: 20px;
+  box-shadow: var(--shadow);
+  background-color: var(--danger);
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
 .oppgave .btn:hover,
-.btn-cancel:hover {
+.btn-cancel:hover,
+.btn-danger:hover {
   filter: brightness(150%);
   box-shadow: var(--shadow2);
   transition: ease 0.1s;
