@@ -20,15 +20,6 @@ body {
   line-height: 1.4;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-  color: var(--primary);
-}
-
 .btn {
   background-color: var(--dark);
   color: var(--light);
@@ -236,10 +227,6 @@ img {
   justify-self: center;
   text-align: center;
   padding-bottom: 10px;
-}
-
-.oppgave p {
-  color: var(--primary);
 }
 
 .oppgave a {

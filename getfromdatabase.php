@@ -12,9 +12,9 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to retrieve data from database";
+            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Ingen utøver(e) å hente";
+            echo "<p>Ingen utøver(e) å hente</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -50,9 +50,9 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to retrieve data from database";
+            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Ingen tilskuer(e) å hente";
+            echo "<p>Ingen tilskuer(e) å hente</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -83,9 +83,9 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to retrieve data from database";
+            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Ingen øvelse(r) å hente";
+            echo "<p>Ingen øvelse(r) å hente</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -124,9 +124,9 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to retrieve data from database";
+            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Ingen utøver(e) å hente";
+            echo "<p>Ingen utøver(e) å hente</p>";
         } else {
             return $result->fetch_object();
         }
@@ -146,9 +146,9 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to retrieve data from database";
+            echo "<p>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "No athletes to get";
+            echo "<p>No athletes to get</p>";
         } else {
             return $result->fetch_object();
         }
@@ -169,11 +169,11 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to add to database";
+            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "No athlete added";
+            echo "<p>Ingen utøver lagt til</p>";
         } else {
-            echo "Athlete added";
+            echo "<p>Utøver lagt til</p>";
         }
 
         $db->close();
@@ -192,11 +192,11 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to remove from database";
+            echo "<p>Feil, fikk ikke fjerne fra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "No athlete removed";
+            echo "<p>Ingen utøver fjernet</p>";
         } else {
-            echo "Athlete removed";
+            echo "<p>Utøver fjernet</p>";
         }
 
         $db->close();
@@ -216,11 +216,11 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to update database";
+            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "No rows where updated";
+            echo "<p>Ingen rader ble oppdatert</p>";
         } else {
-            echo "Competition updated";
+            echo "<p>Øvelse oppdatert</p>";
         }
 
         $db->close();
@@ -241,9 +241,9 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to update database";
+            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Utøveren er ikke påmeldt noen øvelser enda";
+            echo "<p>Utøveren er ikke påmeldt noen øvelser enda</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -278,9 +278,9 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to update database";
+            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Utøveren er meldt på alle øvelser";
+            echo "<p>Utøveren er meldt på alle øvelser</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -315,9 +315,9 @@
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to update database";
+            echo "<p>Feil, fikk ikke oppdatert databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Ingen utøvere er meldt på denne øvelsen";
+            echo "<p>Ingen utøvere er meldt på denne øvelsen</p>";
         } else {
             while($row = $result->fetch_object()) {
                 echo "<tr>";
@@ -333,9 +333,6 @@
                 echo "</tr>";
             }
         }
-
         $db->close();
     }
-
-    
 ?>

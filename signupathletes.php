@@ -97,8 +97,6 @@ include('getfromdatabase.php');
 
                     echo "</table>";
                 }
-            
-            
             ?>  
         </div>
 
