@@ -47,18 +47,19 @@ include('classes/competition.php');
                         echo "<p>Fyll ut informasjon</p>";
                     }
                 }
-             ?>
+            ?>
+            <div class="form-style">
             <form action="" method="post">
-                <br/>Tidspunkt:<br />
-                <input type="text" name="time"><br />
-                Distanse:<br />
-                <input type="text" name="type"><br />
-                Sted:<br />
-                <input type="text" name="place"><br />
+            <fieldset>
+                <legend>Registreringsskjema</legend>
+                <input type="text" name="time" placeholder="Tidspunkt">
+                <input type="text" name="type" placeholder="Distanse">
+                <input type="text" name="place" placeholder="Sted">
                 <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
                 <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
+            </fieldset>
             </form>
-            
+            </div>
         </div>
 
 
