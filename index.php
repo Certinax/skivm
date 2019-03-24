@@ -4,7 +4,7 @@ $sql = "CREATE DATABASE vm_ski";
 mysqli_query($db, $sql);
 
 $db = mysqli_connect("localhost", "root", "", "vm_ski");
-$location = 'person.sql';
+$location = 'vm_ski.sql';
 
 $commands = file_get_contents($location);
 $db->multi_query($commands);
