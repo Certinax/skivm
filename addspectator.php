@@ -56,7 +56,7 @@ include('classes/person.php');
                     }
                 }
              ?>
-            <form action="" method="post">
+            <form id="regform" action="" method="post">
                 <br/>Fornavn:<br />
                 <input type="text" name="firstname"><br />
                 Etternavn:<br />
@@ -74,12 +74,7 @@ include('classes/person.php');
                 <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
                 <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
             </form>
-            
         </div>
-
-
-        
-
 
         <!-- Info section -->
         <section class="info">
@@ -89,7 +84,6 @@ include('classes/person.php');
                 <p>Fyll inn erfaring/utfordringer osv...</p>
             </div>
         </section>
-
 
         <!-- Footer -->
         <footer><p>Certinax &copy; 2019</p></footer>
