@@ -179,7 +179,7 @@
         $db->close();
     }
 
-    function deleteAthleteToCompetition($athleteId, $competitionId) {
+    function deleteAthleteFromCompetition($athleteId, $competitionId) {
 
         $db = new mysqli("localhost","root","", "vm_ski");
         if(!$db) {

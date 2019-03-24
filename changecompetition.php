@@ -50,17 +50,23 @@ include('getfromdatabase.php');
                 if(!empty($_SESSION['competitionID'])) {
                     $comp = getCompetition($_SESSION['competitionID']);
 
-                    echo "<form action='' method='post'>
-                        <h2>Øvelse</h2>
-                        Tidspunkt:<br />
-                        <input type='text' name='time' value='$comp->Time'/><br />
-                        Type øvelse:<br />
-                        <input type='text' name='type' value='$comp->Type'/><br />
-                        Plass:<br />
-                        <input type='text' name='place' value='$comp->Place' /><br />
+                    echo "
+                    <div class='form-style'>
+                    <form action='' method='post'>
+                    <fieldset>
+                        <legend>Endringsskjema</legend>
+                        <label>Tidspunkt:</label>
+                        <input type='text' name='time' value='$comp->Time'/>
+                        <label>Type øvelse:</label>
+                        <input type='text' name='type' value='$comp->Type'/>
+                        <label>Plass:</label>
+                        <input type='text' name='place' value='$comp->Place' />
                         <button name='change' class='btn' value='".$_SESSION['competitionID']."'>Endre</button>
                         <a href='index.php'><button type='button' class='btn-cancel' value='button' name='button'>Avbryt</button></a>
-                    </form>";
+                    </fieldset>
+                    </form>
+                    </div>
+                    ";
                 }
             ?>  
         </div>

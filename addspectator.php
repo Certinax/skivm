@@ -50,7 +50,7 @@ include('classes/person.php');
                 } 
                 else {
                     if(!empty($_POST["submit"])) {
-                        echo "<p style='color:red'>Du må fylle ut alle felter</p>";
+                        echo "<p style='color:red'>*Du må fylle ut alle felter</p>";
                     } else {
                         echo "<p>Fyll ut informasjon</p>";
                     }
