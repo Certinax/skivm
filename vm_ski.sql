@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 24. Mar, 2019 22:38 PM
+-- Generation Time: 24. Mar, 2019 22:50 PM
 -- Tjener-versjon: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -107,6 +107,33 @@ INSERT INTO `competitionAthlete` (`Id`, `competitionID`, `athleteID`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tabellstruktur for tabell `competitionSpectator`
+--
+
+CREATE TABLE `competitionSpectator` (
+  `Id` int(11) NOT NULL,
+  `competitionID` int(11) NOT NULL,
+  `spectatorID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dataark for tabell `competitionSpectator`
+--
+
+INSERT INTO `competitionSpectator` (`Id`, `competitionID`, `spectatorID`) VALUES
+(16, 2, 2),
+(17, 2, 3),
+(18, 15, 3),
+(19, 3, 3),
+(20, 5, 3),
+(21, 17, 3),
+(22, 5, 8),
+(23, 3, 8),
+(24, 2, 8);
+
+-- --------------------------------------------------------
+
+--
 -- Tabellstruktur for tabell `spectator`
 --
 
@@ -157,6 +184,12 @@ ALTER TABLE `competitionAthlete`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indexes for table `competitionSpectator`
+--
+ALTER TABLE `competitionSpectator`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `spectator`
 --
 ALTER TABLE `spectator`
@@ -183,6 +216,12 @@ ALTER TABLE `competition`
 --
 ALTER TABLE `competitionAthlete`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+
+--
+-- AUTO_INCREMENT for table `competitionSpectator`
+--
+ALTER TABLE `competitionSpectator`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `spectator`
