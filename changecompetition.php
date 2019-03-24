@@ -40,6 +40,7 @@ include('competition_db.php');
 
         <div class="oppgave">
             <?php
+
                 if(!empty($_POST['change'])) {
                     if(!empty($_POST['time']) &&
                         !empty($_POST['type']) &&
@@ -52,22 +53,20 @@ include('competition_db.php');
 
                         updateCompetition($id, $time, $type, $place);
                     }       
-                } else if(!empty($_POST['delete'])) {
-                    if(!empty($_POST['time']) &&
-                        !empty($_POST['type']) &&
-                        !empty($_POST['place'])) {
-                        
-                        $id = $_POST['delete'];
-
-                        deleteCompetition($id);
-                    }
-                }
-            
-                if(!empty($_POST['competiton'])) {
-                    $_SESSION['competitionID'] = $_POST['competition'];
                 }
 
-                if(!empty($_SESSION['competitionID'])) {
+                if(!empty($_POST['delete'])) {
+                    $id = $_POST['delete'];
+                    deleteCompetition($id);
+                    updateCompetitionSpectator($id);
+                    updateCompetitionAthlete($id);
+                }
+
+                if(empty($_POST['change'])) {
+
+                } else if(!empty($_POST['change']) || !empty($_SESSION['competitionID'])) {
+                    $_SESSION['competitionID'] = $_POST['change'];
+
                     $competition = getCompetition($_SESSION['competitionID']);
 
                     echo "

@@ -142,7 +142,7 @@ include("db/connection.php");
         if(!$result) {
             echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
         } elseif($db->affected_rows == 0) {
-            echo "<p class='cancelation'>Ingen utøvere å hente</p>";
+            echo "<p class='cancelation'>Ingen øvelser å hente</p>";
         } else {
             return $result->fetch_object();
         }
@@ -310,5 +310,25 @@ include("db/connection.php");
             }
         }
         $db->close();
+    }
+
+    function updateCompetitionAthlete($competitionId) {
+        $db = connectToDatabase();
+    
+        $stmt = "DELETE FROM competitionAthlete";
+        $stmt .= " where competitionID = '$competitionId'";
+    
+        $result = $db->query($stmt);
+    
+        if(!$result) {
+            echo "<p class='cancelation'>[updateCompetitionAthlete]Feil, fikk ikke fjerne fra databasen<br/></p>";
+        } elseif($db->affected_rows == 0) {
+            echo "<p class='cancelation'>Ingen øvelser/utøvere er fjernet</p>";
+        } else {
+            echo "<p class='cancelation'>Øvelse og utøvere fjernet</p>";
+        }
+    
+        $db->close();
+        session_destroy();
     }
 ?>
