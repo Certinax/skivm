@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('getfromdatabase.php');
+include('competition_db.php');
 ?>
 
 <!DOCTYPE html>
@@ -51,6 +52,15 @@ include('getfromdatabase.php');
 
                         updateCompetition($id, $time, $type, $place);
                     }       
+                } else if(!empty($_POST['delete'])) {
+                    if(!empty($_POST['time']) &&
+                        !empty($_POST['type']) &&
+                        !empty($_POST['place'])) {
+                        
+                        $id = $_POST['delete'];
+
+                        deleteCompetition($id);
+                    }
                 }
             
                 if(!empty($_POST['competiton'])) {
@@ -76,6 +86,7 @@ include('getfromdatabase.php');
                         <label>Plass:</label>
                         <input type='text' name='place' value='$competition->Place' />
                         <button name='change' class='btn' value='".$_SESSION['competitionID']."'>Endre</button>
+                        <button name='delete' class='btn' value='".$_SESSION['competitionID']."'>Slett</button>
                         <a href='index.php'><button type='button' class='btn-cancel' value='button' name='button'>Avbryt</button></a>
                     </fieldset>
                     </form>

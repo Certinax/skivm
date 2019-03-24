@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('getfromdatabase.php');
+include('spectator_db.php');
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +67,7 @@ include('getfromdatabase.php');
 
 
                     echo "<table class='table'>
-                        <tr><h2>Påmeldte til øvelsen</h2></tr>
+                        <tr><h2>Påmeldte utøvere til øvelsen</h2></tr>
                         <tr>
                             <th>Fornavn</th>
                             <th>Etternavn</th>
@@ -78,6 +79,22 @@ include('getfromdatabase.php');
                         </tr>";
                     
                     athletesSignedUp($_SESSION['competitionID']);
+                
+                    echo "</table>";
+
+                    echo "<table class='table'>
+                        <tr><h2>Påmeldte tilskuere til øvelsen</h2></tr>
+                        <tr>
+                            <th>Fornavn</th>
+                            <th>Etternavn</th>
+                            <th>Adresse</th>
+                            <th>Postnummer</th>
+                            <th>Poststed</th>
+                            <th>Telefon</th>
+                            <th>Billettype</th>
+                        </tr>";
+                    
+                    spectatorsSignedUp($_SESSION['competitionID']);
                 
                     echo "</table>";
                 }
