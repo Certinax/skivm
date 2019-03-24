@@ -60,7 +60,12 @@ include("db/connection.php");
                 <td>".$row->Zip."</td>
                 <td>".$row->City."</td>
                 <td>".$row->Phone."</td>
-                <td>".$row->Ticket."</td>";
+                <td>".$row->Ticket."</td>
+                <td>
+                    <form action='signupspectator.php' method='post'>
+                    <button class='btn' name='spectator' value='".$row->Id."'>Legg til</button>
+                    </form>
+                </td>";
                 echo "</tr>";
             }
         }
@@ -124,6 +129,7 @@ include("db/connection.php");
 
         $db->close();
     }
+
 
     function getCompetition($id) {
 

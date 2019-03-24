@@ -86,6 +86,7 @@ include("getfromdatabase.php");
                         <th>Poststed</th>
                         <th>Telefonnr</th>
                         <th>Billettype</th>
+                        <th>Meld på øvelser</th>
                     </tr>
                     <?php showSpectators(); ?>
                 </table>
