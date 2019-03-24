@@ -1,4 +1,7 @@
 <?php
+include("./db/connection.php");
+?>
+<?php
 class Competition {
     private $time;
     private $type;
@@ -11,10 +14,7 @@ class Competition {
     }
 
     public function addToDatabase() {
-        $db = new mysqli("localhost", "root", "", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "insert into competition (Time, Type, Place)";
         $stmt .= " values ('$this->time', '$this->type', '$this->place');";
@@ -22,15 +22,14 @@ class Competition {
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to add to database";
+            echo "<p class='cancelation'>Failed to add to database</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Query completed, but no person added";
+            echo "<p class='cancelation'>Query completed, but no person added</p>";
         } else {
-            echo "Øvelse er lagt til";
+            echo "<p class='confirmation'>Øvelse er lagt til</p>";
         }
 
         $db->close();
     }
 }
-
 ?>

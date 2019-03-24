@@ -1,4 +1,7 @@
 <?php
+include("./db/connection.php");
+?>
+<?php
 class Person {
     protected $firstname;
     protected $lastname;
@@ -26,10 +29,7 @@ class Spectator extends Person {
     }
 
     public function addToDatabase() {
-        $db = new mysqli("localhost", "root", "", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "insert into spectator (Firstname, Lastname, Address, Zip, City, Phone, Ticket)";
         $stmt .= " values ('$this->firstname', '$this->lastname', '$this->address', '$this->zipcode', '$this->city', '$this->phonenumber', '$this->ticketType');";
@@ -37,11 +37,11 @@ class Spectator extends Person {
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to add to database";
+            echo "<p class='cancelation'>Failed to add to database</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Query completed, but no person added";
+            echo "<p class='cancelation'>Query completed, but no person added</p>";
         } else {
-            echo "Tilskuer er lagt til";
+            echo "<p class='confirmation'>Tilskuer er lagt til</p>";
         }
 
         $db->close();
@@ -61,10 +61,7 @@ class Athlete extends Person {
     }
 
     public function addToDatabase() {
-        $db = new mysqli("localhost", "root", "", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "insert into athlete (Firstname, Lastname, Address, Zip, City, Phone, Nationality)";
         $stmt .= " values ('$this->firstname', '$this->lastname', '$this->address', '$this->zipcode', '$this->city', '$this->phonenumber', '$this->nationality');";
@@ -72,11 +69,11 @@ class Athlete extends Person {
         $result = $db->query($stmt);
 
         if(!$result) {
-            echo "Failed to add to database";
+            echo "<p class='cancelation'>Failed to add to database</p>";
         } elseif($db->affected_rows == 0) {
-            echo "Query completed, but no person added";
+            echo "<p class='cancelation'>Query completed, but no person added</p>";
         } else {
-            echo "Utøver er lagt til";
+            echo "<p class='confirmation'>Utøver er lagt til</p>";
         }
 
         $db->close();
