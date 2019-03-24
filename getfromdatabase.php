@@ -253,7 +253,7 @@
                 <td>".$row->Place."</td>
                 <td>
                     <form action='' method='post'>
-                        <button class='btn' name='signoff' value='".$row->Id."'>Meld av</button>
+                        <button class='btn-cancel' name='signoff' value='".$row->Id."'>Meld av</button>
                     </form>
                 </td>
                 ";

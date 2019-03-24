@@ -56,6 +56,7 @@ include('classes/competition.php');
                 Sted:<br />
                 <input type="text" name="place"><br />
                 <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
+                <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
             </form>
             
         </div>
