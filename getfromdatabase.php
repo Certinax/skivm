@@ -4,7 +4,7 @@ include("db/connection.php");
 <?php
 
     function showAthletes() {
-        
+
         $db = connectToDatabase();
 
         $stmt = "select * from athlete";
@@ -40,10 +40,7 @@ include("db/connection.php");
 
     function showSpectators() {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "select * from spectator";
 
@@ -73,10 +70,7 @@ include("db/connection.php");
 
     function showCompetitions() {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "select * from competition";
 
@@ -114,10 +108,7 @@ include("db/connection.php");
 
     function getAthlete($id) {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "select * from athlete where Id = '$id'";
 
@@ -136,10 +127,7 @@ include("db/connection.php");
 
     function getCompetition($id) {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "select * from competition where Id = '$id'";
 
@@ -158,10 +146,7 @@ include("db/connection.php");
 
     function addAthleteToCompetition($athleteId, $competitionId) {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "insert into competitionAthlete (athleteId, competitionId)";
         $stmt .= " values ('$athleteId', '$competitionId')";
@@ -181,10 +166,7 @@ include("db/connection.php");
 
     function deleteAthleteFromCompetition($athleteId, $competitionId) {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "delete from competitionAthlete";
         $stmt .= " where athleteId = '$athleteId' AND competitionId = '$competitionId';";
@@ -204,10 +186,7 @@ include("db/connection.php");
 
     function updateCompetition($id, $time, $type, $place) {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "update competition";
         $stmt .= " set time = '$time', type = '$type', place = '$place'";
@@ -229,10 +208,7 @@ include("db/connection.php");
     
     function competitionSignedUpFor($athlete) {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "select competition.* FROM competition ";;
         $stmt .= "WHERE id IN ";
@@ -266,10 +242,7 @@ include("db/connection.php");
 
     function competitionNotSignedUpFor($athlete) {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "select competition.* FROM competition ";;
         $stmt .= "WHERE id NOT IN ";
@@ -303,10 +276,7 @@ include("db/connection.php");
 
     function athletesSignedUp($competition) {
 
-        $db = new mysqli("localhost","root","", "vm_ski");
-        if(!$db) {
-            die("Connection to database failed");
-        }
+        $db = connectToDatabase();
 
         $stmt = "select athlete.* FROM athlete ";;
         $stmt .= "WHERE id IN ";
