@@ -8,7 +8,7 @@ Publikum og utøvere må kunne registrere seg med personlig informasjon. Videre 
 
 - [Fontawesome](https://fontawesome.com/) - Brukt for ikoner
 
-### Gjenstående oppgaver TODO's
+### Gjenstående oppgaver [TODO's]
 
 - [x] Koble publikum til øvelser
 - [ ] Kunne slette øvelser
