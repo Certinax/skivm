@@ -21,33 +21,23 @@ include('getfromdatabase.php');
         <!-- Top container -->
         <div class="top-container">
             <header class="showcase">
-                <h1>Oblig2 - DATA1700 - Webprogrammering</h1>
-                <p>S319217 - Mathias Lund Ahrn</p>
+                <h1>Ski-VM Sefeeld - Østerrike 2019</h1>
             </header>
         </div>
 
-
         <div class="oppgave">
-            <h1>Øvelse</h1>
             <?php
-
-               
-
                 if(!empty($_POST['competition']) || !empty($_SESSION['competitionID'])) {
-                    if(!empty($_POST['athlete'])) {
-                    }
                     $_SESSION['competitionID'] = $_POST['competition'];
 
                     $competition = getCompetition($_SESSION['competitionID']);
 
-                    // echo "Tid: ";
-                    // echo $competition->Time;
-                    // echo "<br />Type øvelse: ";
-                    // echo $competition->Type;
-                    // echo "<br />Sted: ";
-                    // echo $competition->Place;
+                    echo "
+                        <h1>Øvelse - $competition->Type</h1>
+                    ";
 
-                    echo "<table class='table'>
+                    echo "
+                    <table class='table'>
                         <tr><h2>Distanse</h2></tr>
                         <tr>
                             <th>Tid</th>
@@ -59,6 +49,7 @@ include('getfromdatabase.php');
                             <td>$competition->Type</td>
                             <td>$competition->Place</td>
                         </tr>
+                    </table>
                     ";
 
 

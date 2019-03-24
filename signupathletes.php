@@ -21,8 +21,7 @@ include('getfromdatabase.php');
         <!-- Top container -->
         <div class="top-container">
             <header class="showcase">
-                <h1>Oblig2 - DATA1700 - Webprogrammering</h1>
-                <p>S319217 - Mathias Lund Ahrn</p>
+                <h1>Ski-VM Sefeeld - Østerrike 2019</h1>
             </header>
         </div>
 

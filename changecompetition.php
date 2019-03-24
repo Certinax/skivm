@@ -21,14 +21,12 @@ include('getfromdatabase.php');
         <!-- Top container -->
         <div class="top-container">
             <header class="showcase">
-                <h1>Oblig2 - DATA1700 - Webprogrammering</h1>
-                <p>S319217 - Mathias Lund Ahrn</p>
+                <h1>Ski-VM Sefeeld - Østerrike 2019</h1>
             </header>
         </div>
 
 
         <div class="oppgave">
-            <h1>Endre øvelse</h1>
             <?php
                 if(!empty($_POST['change'])) {
                     if(!empty($_POST['time']) &&
@@ -49,7 +47,11 @@ include('getfromdatabase.php');
                 }
 
                 if(!empty($_SESSION['competitionID'])) {
-                    $comp = getCompetition($_SESSION['competitionID']);
+                    $competition = getCompetition($_SESSION['competitionID']);
+
+                    echo "
+                        <h1>Endre øvelse - $competition->Type</h1>
+                    ";
 
                     echo "
                     <div class='form-style'>
@@ -57,11 +59,11 @@ include('getfromdatabase.php');
                     <fieldset>
                         <legend>Endringsskjema</legend>
                         <label>Tidspunkt:</label>
-                        <input type='text' name='time' value='$comp->Time'/>
+                        <input type='text' name='time' value='$competition->Time'/>
                         <label>Type øvelse:</label>
-                        <input type='text' name='type' value='$comp->Type'/>
+                        <input type='text' name='type' value='$competition->Type'/>
                         <label>Plass:</label>
-                        <input type='text' name='place' value='$comp->Place' />
+                        <input type='text' name='place' value='$competition->Place' />
                         <button name='change' class='btn' value='".$_SESSION['competitionID']."'>Endre</button>
                         <a href='index.php'><button type='button' class='btn-cancel' value='button' name='button'>Avbryt</button></a>
                     </fieldset>
