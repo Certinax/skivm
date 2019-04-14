@@ -87,8 +87,13 @@ function loginSession()
 function updatePage($login)
 {
     if ($login == "login") {
-        Header('Location: ' . $_SERVER['PHP_SELF']);
-        exit();
+        if(isset($_SESSION["route"])) {
+            Header('Location: ' . $_SESSION["route"]);
+            exit();
+        } else {
+            Header('Location: ' . $_SERVER['PHP_SELF']);
+            exit();
+        }
     } else if ($login == "logout") {
         Header('Location:index.php');
         exit();

@@ -69,6 +69,9 @@ include("login/modal/modal.php");
                         } else {
                             login();
                             notLoggedIn();
+                            if(isset($_SESSION["route"]) && $_SESSION["loggedIn"]) {
+                                header("Location:" . $_SESSION["route"]);
+                            }
                         }
                         ?>
                     </fieldset>

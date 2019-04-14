@@ -16,6 +16,7 @@ include("validation/inputvalidation.php");
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/form-style.css">
+    <link rel="stylesheet" href="css/mongo.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Legg til administrator</title>
 </head>
@@ -39,6 +40,8 @@ include("validation/inputvalidation.php");
                 <div class="btn-line"></div>
             </div>
         </div>
+
+        <?php loginStatus() ?>
 
         <!-- Navigation bar -->
         <div class="main-nav">

@@ -10,3 +10,11 @@ if (!isset($_SESSION["loggedIn"])) {
 if (!$_SESSION["loggedIn"]) {
     $_SESSION["loggedIn"] = false;
 }
+
+function loginStatus() {
+    if ($_SESSION["loggedIn"] == 1) {
+        echo "<p class='loggedin'>Logged in</p>";
+    } else {
+        echo "<p class='loggedout'>Not Logged in - Sign in to edit</p>";
+    }
+}

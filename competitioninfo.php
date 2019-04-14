@@ -6,6 +6,9 @@ include('db/athlete_db.php');
 include('db/spectator_db.php');
 include("login/logic/login.php");
 include("login/modal/modal.php");
+if (!$_SESSION["competitionID"]) {
+    header('Location:index.php');
+}
 ?>
 
 <!DOCTYPE html>

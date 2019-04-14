@@ -6,6 +6,10 @@ include('db/athlete_db.php');
 include('db/spectator_db.php');
 include("login/logic/login.php");
 include("login/modal/modal.php");
+if (!$_SESSION["loggedIn"]) {
+    header('Location:signin.php');
+    $_SESSION["route"] = "index.php";
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +23,7 @@ include("login/modal/modal.php");
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/form-style.css">
+    <link rel="stylesheet" href="css/mongo.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Meld på utøver</title>
 </head>
@@ -42,6 +47,8 @@ include("login/modal/modal.php");
                 <div class="btn-line"></div>
             </div>
         </div>
+
+        <?php loginStatus() ?>
 
         <!-- Navigation bar -->
         <div class="main-nav">

@@ -4,7 +4,8 @@ include('classes/competition.php');
 include("login/logic/login.php");
 include("login/modal/modal.php");
 if (!$_SESSION["loggedIn"]) {
-    header('Location:index.php');
+    header('Location:signin.php');
+    $_SESSION["route"] = "addcompetition.php";
 }
 ?>
 
@@ -19,6 +20,7 @@ if (!$_SESSION["loggedIn"]) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/form-style.css">
+    <link rel="stylesheet" href="css/mongo.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Legg til øvelse</title>
 </head>
@@ -43,6 +45,7 @@ if (!$_SESSION["loggedIn"]) {
             </div>
         </div>
 
+        <?php loginStatus() ?>
 
         <!-- Navigation bar -->
         <div class="main-nav">
