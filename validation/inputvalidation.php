@@ -47,13 +47,16 @@ function nameValidation($firstname, $lastname)
 
 function passwordValidation($password, $re_password)
 {
+    // This regex checks for minimum 8 chars, at least one letter and one number
     // $regex = '/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/';
-    $regex = '/^(?=.*[A-Za-z])[A-Za-z]{8,}$/';
+
+    // This regex check for minimum 8 characters (A-Za-z and digits)
+    $regex = '/^(?=.*[A-Za-z])[A-Za-z\d]{8,}$/';
     $errmsg = "";
     $error = 0;
 
     if (!preg_match($regex, $password)) {
-        $errmsg .= "<p class='cancelation'>Password requirements: minimum 8 characters, at least one letter and one number.</p>";
+        $errmsg .= "<p class='cancelation'>Password requirements: minimum 8 characters (A-Za-z0-9).</p>";
         $error++;
     }
 

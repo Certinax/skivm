@@ -32,7 +32,6 @@ include("login/modal/modal.php");
     <link rel="stylesheet" href="css/form-style.css">
     <link rel="stylesheet" href="css/mongo.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
-
     <title>Ski-VM | Velkommen</title>
 </head>
 
