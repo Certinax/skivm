@@ -1,9 +1,11 @@
 <?php
-session_start();
+include("session/sessioncontrol.php");
 include('db/getfromdatabase.php');
 include('db/competition_db.php');
 include('db/athlete_db.php');
 include('db/spectator_db.php');
+include("login/logic/login.php");
+include("login/modal/modal.php");
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +17,8 @@ include('db/spectator_db.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/form-style.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Endre øvelse</title>
 </head>
@@ -28,6 +32,15 @@ include('db/spectator_db.php');
             <header class="showcase">
                 <h1>Ski-VM Sefeeld - Østerrike 2019</h1>
             </header>
+        </div>
+
+        <!-- Default nav-bar -->
+        <div class="main-nav">
+            <div class="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
         </div>
 
         <!-- Navigation bar -->
@@ -68,8 +81,10 @@ include('db/spectator_db.php');
                 updateCompetitionAthlete($id);
             }
 
-            if (empty($_POST['change'])) { } else if (!empty($_POST['change']) || !empty($_SESSION['competitionID'])) {
-                $_SESSION['competitionID'] = $_POST['change'];
+            if (!empty($_POST['change']) || !empty($_SESSION['competitionID'])) {
+                if (!empty($_POST['change'])) {
+                    $_SESSION['competitionID'] = $_POST['change'];
+                }
 
                 $competition = getCompetition($_SESSION['competitionID']);
 
@@ -115,5 +130,6 @@ include('db/spectator_db.php');
         </footer>
     </div>
 </body>
+<script src="js/menu.js"></script>
 
-</html> 
+</html>

@@ -1,0 +1,87 @@
+/* CSS VARIABLES */
+/* :root {
+  --primary: rgb(1, 11, 39);
+  --dark: rgb(1, 103, 255);
+  --light: rgb(235, 235, 235);
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  --shadow2: 0 2px 9px rgba(104, 104, 104, 0.8);
+  --cancel: rgb(208, 68, 68);
+  --accept: rgb(58, 184, 58);
+  --danger: rgb(222, 204, 16);
+} */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation-name: modalOpen;
+  animation-duration: 0.6s;
+}
+
+.modal-content {
+  /* background-color: #f4f4f4; */
+  margin: 150px auto;
+  width: 30%;
+  padding: 0;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  border-radius: 8px;
+  box-shadow: var(--shadow2);
+}
+
+.modal-header h2,
+.modal-footer h3 {
+  margin: 0;
+}
+
+.modal-header {
+  background: var(--primary);
+  padding: 15px;
+  color: #fff;
+}
+
+.modal-body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.modal-footer {
+  background: var(--primary);
+  padding: 10px;
+  margin-top: 0px;
+  color: #fff;
+  text-align: center;
+}
+
+.modal-footer a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--light);
+}
+
+.closeBtn {
+  color: #fff;
+  float: right;
+  font-size: 30px;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: var(--cancel);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,9 +1,11 @@
 <?php
-session_start();
+include("session/sessioncontrol.php");
 include('db/getfromdatabase.php');
 include('db/competition_db.php');
 include('db/athlete_db.php');
 include('db/spectator_db.php');
+include("login/logic/login.php");
+include("login/modal/modal.php");
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +17,9 @@ include('db/spectator_db.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/form-style.css">
+    <link rel="stylesheet" href="css/mongo.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Øvelseinfo</title>
 </head>
@@ -30,14 +35,36 @@ include('db/spectator_db.php');
             </header>
         </div>
 
+        <!-- Default nav-bar -->
+        <div class="main-nav">
+            <div class="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
+        </div>
+
+        <?php if ($_SESSION["loggedIn"] == 1) {
+            echo "<p class='loggedin'>Logged in</p>";
+        } else {
+            echo "<p class='loggedout'>Not Logged in - Sign in to edit</p>";
+        }
+        ?>
+
         <!-- Navigation bar -->
         <div class="main-nav">
             <nav>
                 <ul>
                     <a href="index.php">Hjem</a>
-                    <a href="addathlete.php">Registrere utøver</a>
-                    <a href="addspectator.php">Registrere tilskuer</a>
-                    <a href="addcompetition.php">Registrere øvelse</a>
+                    <?php
+                    if ($_SESSION["loggedIn"]) {
+                        echo "
+                        <a href='addathlete.php'>Registrere utøver</a>
+                        <a href='addspectator.php'>Registrere tilskuer</a>
+                        <a href='addcompetition.php'>Registrere øvelse</a>
+                        ";
+                    }
+                    ?>
                 </ul>
             </nav>
         </div>
@@ -45,7 +72,9 @@ include('db/spectator_db.php');
         <div class="oppgave">
             <?php
             if (!empty($_POST['competition']) || !empty($_SESSION['competitionID'])) {
-                $_SESSION['competitionID'] = $_POST['competition'];
+                if (!empty($_POST['competition'])) {
+                    $_SESSION['competitionID'] = $_POST['competition'];
+                }
 
                 $competition = getCompetition($_SESSION['competitionID']);
 
@@ -120,5 +149,6 @@ include('db/spectator_db.php');
         </footer>
     </div>
 </body>
+<script src="js/menu.js"></script>
 
-</html> 
+</html>

@@ -1,13 +1,10 @@
 <?php
 include("session/sessioncontrol.php");
-include('classes/competition.php');
+include('classes/administrator.php');
 include("login/logic/login.php");
 include("login/modal/modal.php");
-if (!$_SESSION["loggedIn"]) {
-    header('Location:index.php');
-}
+include("validation/inputvalidation.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +17,7 @@ if (!$_SESSION["loggedIn"]) {
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/form-style.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
-    <title>Ski-VM | Legg til øvelse</title>
+    <title>Ski-VM | Legg til administrator</title>
 </head>
 
 <body>
@@ -43,35 +40,50 @@ if (!$_SESSION["loggedIn"]) {
             </div>
         </div>
 
-
         <!-- Navigation bar -->
         <div class="main-nav">
             <nav>
                 <ul>
                     <a href="index.php">Hjem</a>
-                    <a href="addathlete.php">Registrere utøver</a>
-                    <a href="addspectator.php">Registrere tilskuer</a>
-                    <a href="addcompetition.php" id="btn-active">Registrere øvelse</a>
+                    <?php
+                    if ($_SESSION["loggedIn"]) {
+                        echo "
+                        <a href='addathlete.php'>Registrere utøver</a>
+                        <a href='addspectator.php'>Registrere tilskuer</a>
+                        <a href='addcompetition.php'>Registrere øvelse</a>
+                        ";
+                    }
+                    ?>
                 </ul>
             </nav>
         </div>
 
         <div class="oppgave">
-            <h1>Registrering av øvelse</h1>
+            <h1>Registrering av administrator</h1>
             <?php
             if (
-                !empty($_POST["time"]) &&
-                !empty($_POST["type"]) &&
-                !empty($_POST["place"]) &&
+                !empty($_POST["username"]) &&
+                !empty($_POST["firstname"]) &&
+                !empty($_POST["lastname"]) &&
+                !empty($_POST["password"]) &&
                 !empty($_POST["submit"])
             ) {
 
-                $time = $_POST["time"];
-                $type = $_POST["type"];
-                $place = $_POST["place"];
+                $username = trim($_POST["username"]);
+                $firstname = trim($_POST["firstname"]);
+                $lastname = trim($_POST["lastname"]);
+                $password = trim($_POST["password"]);
+                $re_password = trim($_POST["re_password"]);
 
-                $competition = new Competition($time, $type, $place);
-                $competition->addToDatabase();
+
+                if (
+                    userNameValidation($username) &&
+                    nameValidation($firstname, $lastname) &&
+                    passwordValidation($password, $re_password)
+                ) {
+                    $administrator = new Administrator($username, $firstname, $lastname, $password);
+                    $administrator->addToDatabase();
+                }
             } else {
                 if (!empty($_POST["submit"])) {
                     echo "<p style='color:red'>*Du må fylle ut alle felter</p>";
@@ -84,9 +96,11 @@ if (!$_SESSION["loggedIn"]) {
                 <form action="" method="post">
                     <fieldset>
                         <legend>Registreringsskjema</legend>
-                        <input type="text" name="time" placeholder="Tidspunkt">
-                        <input type="text" name="type" placeholder="Distanse">
-                        <input type="text" name="place" placeholder="Sted">
+                        <input type="text" name="username" placeholder="Username">
+                        <input type="text" name="firstname" placeholder="Firstname">
+                        <input type="text" name="lastname" placeholder="Lastname">
+                        <input type="password" name="password" placeholder="Password">
+                        <input type="password" name="re_password" placeholder="Retype password">
                         <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
                         <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
                     </fieldset>
@@ -110,6 +124,7 @@ if (!$_SESSION["loggedIn"]) {
             <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
         </footer>
     </div>
+
 </body>
 <script src="js/menu.js"></script>
 

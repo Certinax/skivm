@@ -1,0 +1,23 @@
+.loggedin {
+  padding: 5px 5px;
+  background-color: var(--accept);
+  width: auto;
+  margin: 0px auto 0px 0px;
+  color: var(--light);
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow);
+  font-size: 12px;
+}
+
+.loggedout {
+  padding: 5px 5px;
+  background-color: var(--cancel);
+  width: auto;
+  margin: 0px auto 0px 0px;
+  color: var(--light);
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  box-shadow: var(--shadow);
+  font-size: 12px;
+}

@@ -1,0 +1,78 @@
+/* CSS VARIABLES */
+/* :root {
+  --primary: rgb(1, 11, 39);
+  --dark: rgb(1, 103, 255);
+  --light: rgb(235, 235, 235);
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+  --shadow2: 0 2px 9px rgba(104, 104, 104, 0.8);
+  --cancel: rgb(208, 68, 68);
+  --accept: rgb(58, 184, 58);
+  --danger: rgb(222, 204, 16);
+} */
+
+/* Form-style */
+.form-basics {
+  margin: 0px;
+  padding: 0px;
+}
+
+.form-style {
+  background: #f4f7f8;
+  margin: 0px;
+  padding-top: 20px;
+  width: 100%;
+  /* border-radius: 8px; */
+  font-family: Georgia, "Times New Roman", Times, serif;
+  box-shadow: var(--shadow2);
+}
+
+.form-style fieldset {
+  border: none;
+}
+.form-style legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary);
+}
+.form-style label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-style input {
+  font-family: Arial, Helvetica, sans-serif;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  margin: 0;
+  outline: 0;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  background-color: #e8eeef;
+  color: #4b708a;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+}
+
+.form-style input:focus {
+  background: #d2d9dd;
+}
+
+.form-style button {
+  position: relative;
+  display: block;
+  padding: 19px 39px 18px 39px;
+  margin: 0 auto;
+  font-size: 16px;
+  text-align: center;
+  font-style: normal;
+  width: 70%;
+  border-width: 1px 1px 3px;
+  margin-bottom: 10px;
+}

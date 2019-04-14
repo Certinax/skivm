@@ -11,7 +11,12 @@ $db->multi_query($commands);
 ?>
 
 <?php
+require("session/sessioncontrol.php");
 include("db/getfromdatabase.php");
+include("registrations.php");
+include("login/logic/login.php");
+include("login/modal/modal.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -23,11 +28,16 @@ include("db/getfromdatabase.php");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/form-style.css">
+    <link rel="stylesheet" href="css/mongo.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
+
     <title>Ski-VM | Velkommen</title>
 </head>
 
 <body>
+
     <!-- Wrapper -->
     <div class="wrapper">
 
@@ -38,24 +48,33 @@ include("db/getfromdatabase.php");
             </header>
         </div>
 
-        <!-- Boxes Section -->
-        <section class="boxes">
-            <div class="box">
-                <i class="fas fa-skiing-nordic fa-3x"></i>
-                <h3>Utøver</h3>
-                <a href="addathlete.php" class="btn">Gå til registrering</a>
+        <!-- Navigation bar -->
+        <div class="main-nav">
+            <div class="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
             </div>
-            <div class="box">
-                <i class="fas fa-users fa-3x"></i>
-                <h3>Tilskuer</h3>
-                <a href="addspectator.php" class="btn">Gå til registrering</a>
-            </div>
-            <div class="box">
-                <i class="fas fa-map-marked-alt fa-3x"></i>
-                <h3>Øvelse</h3>
-                <a href="addcompetition.php" class="btn">Gå til registrering</a>
-            </div>
-        </section>
+        </div>
+
+        <?php if ($_SESSION["loggedIn"] == 1) {
+            echo "<p class='loggedin'>Logged in</p>";
+            showRegistration();
+        } else {
+            echo "<p class='loggedout'>Not Logged in - Sign in to edit</p>";
+        }
+        // echo '<pre>';
+        // var_dump($_SESSION);
+        // echo '</pre>';
+        // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
+        // echo session_id();
+        //var_dump($_SESSION["logout"]);
+
+        // phpinfo();
+        ?>
+
+
+
 
         <div class="mid-container">
             <div class="oppgave">
@@ -69,7 +88,11 @@ include("db/getfromdatabase.php");
                         <th>Poststed</th>
                         <th>Telefonnr</th>
                         <th>Nasjonalitet</th>
-                        <th>Meld på øvelser</th>
+                        <?php
+                        if ($_SESSION["loggedIn"]) {
+                            echo "<th>Meld på øvelser</th>";
+                        }
+                        ?>
                     </tr>
                     <?php showAthletes(); ?>
                 </table>
@@ -88,7 +111,11 @@ include("db/getfromdatabase.php");
                         <th>Poststed</th>
                         <th>Telefonnr</th>
                         <th>Billettype</th>
-                        <th>Meld på øvelser</th>
+                        <?php
+                        if ($_SESSION["loggedIn"]) {
+                            echo "<th>Meld på øvelser</th>";
+                        }
+                        ?>
                     </tr>
                     <?php showSpectators(); ?>
                 </table>
@@ -104,7 +131,11 @@ include("db/getfromdatabase.php");
                         <th>Type</th>
                         <th>Plass</th>
                         <th>Info</th>
-                        <th>Endre</th>
+                        <?php
+                        if ($_SESSION["loggedIn"]) {
+                            echo "<th>Endre</th>";
+                        }
+                        ?>
                     </tr>
                     <?php showCompetitions(); ?>
                 </table>
@@ -126,6 +157,8 @@ include("db/getfromdatabase.php");
             <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
         </footer>
     </div>
-</body>
 
-</html> 
+</body>
+<script src="js/menu.js"></script>
+
+</html>

@@ -1,13 +1,9 @@
 <?php
 include("session/sessioncontrol.php");
-include('classes/competition.php');
+include('classes/administrator.php');
 include("login/logic/login.php");
 include("login/modal/modal.php");
-if (!$_SESSION["loggedIn"]) {
-    header('Location:index.php');
-}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +16,7 @@ if (!$_SESSION["loggedIn"]) {
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/form-style.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
-    <title>Ski-VM | Legg til øvelse</title>
+    <title>Ski-VM | Signin</title>
 </head>
 
 <body>
@@ -43,64 +39,49 @@ if (!$_SESSION["loggedIn"]) {
             </div>
         </div>
 
-
         <!-- Navigation bar -->
         <div class="main-nav">
             <nav>
                 <ul>
                     <a href="index.php">Hjem</a>
-                    <a href="addathlete.php">Registrere utøver</a>
-                    <a href="addspectator.php">Registrere tilskuer</a>
-                    <a href="addcompetition.php" id="btn-active">Registrere øvelse</a>
+                    <?php
+                    if ($_SESSION["loggedIn"]) {
+                        echo "
+                        <a href='addathlete.php'>Registrere utøver</a>
+                        <a href='addspectator.php'>Registrere tilskuer</a>
+                        <a href='addcompetition.php'>Registrere øvelse</a>
+                        ";
+                    }
+                    ?>
                 </ul>
             </nav>
         </div>
 
         <div class="oppgave">
-            <h1>Registrering av øvelse</h1>
-            <?php
-            if (
-                !empty($_POST["time"]) &&
-                !empty($_POST["type"]) &&
-                !empty($_POST["place"]) &&
-                !empty($_POST["submit"])
-            ) {
+            <h1>Innlogging</h1>
 
-                $time = $_POST["time"];
-                $type = $_POST["type"];
-                $place = $_POST["place"];
-
-                $competition = new Competition($time, $type, $place);
-                $competition->addToDatabase();
-            } else {
-                if (!empty($_POST["submit"])) {
-                    echo "<p style='color:red'>*Du må fylle ut alle felter</p>";
-                } else {
-                    echo "<p>Fyll ut informasjon</p>";
-                }
-            }
-            ?>
             <div class="form-style">
-                <form action="" method="post">
+                <form class="form-basics" action="" method="post">
                     <fieldset>
-                        <legend>Registreringsskjema</legend>
-                        <input type="text" name="time" placeholder="Tidspunkt">
-                        <input type="text" name="type" placeholder="Distanse">
-                        <input type="text" name="place" placeholder="Sted">
-                        <button type="submit" class="btn" value="submit" name="submit">Legg til</button>
-                        <a href="index.php"><button type="button" class="btn-cancel" value="button" name="button">Avbryt</button></a>
+                        <?php
+                        if ($_SESSION["loggedIn"]) {
+                            isLoggedin();
+                        } else {
+                            login();
+                            notLoggedIn();
+                        }
+                        ?>
                     </fieldset>
                 </form>
             </div>
+
         </div>
-
-
 
         <!-- Info section -->
         <section class="info">
             <img src="img/racetrack_web.jpg" alt="WorkPic">
             <div>
-                <h2>Øvelser</h2>
+                <h2>Showcase</h2>
                 <p>Bildet er hentet fra <a id="no-decoration" target="_blank" href="https://www.seefeld2019.com/en/presse-rubrik/press-images">seefeld2019.com</a> sine nettsider.</p>
             </div>
         </section>
@@ -110,6 +91,7 @@ if (!$_SESSION["loggedIn"]) {
             <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
         </footer>
     </div>
+
 </body>
 <script src="js/menu.js"></script>
 

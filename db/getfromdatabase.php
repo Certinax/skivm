@@ -3,332 +3,347 @@ include("db/connection.php");
 ?>
 <?php
 
-    function showAthletes() {
+function showAthletes()
+{
 
-        $db = connectToDatabase();
+    $db = connectToDatabase();
 
-        $stmt = "select * from athlete";
+    $stmt = "select * from athlete";
 
-        $result = $db->query($stmt);
+    $result = $db->query($stmt);
 
-        if(!$result) {
-            echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
-        } elseif($db->affected_rows == 0) {
-            echo "<p class='cancelation'>Ingen utøver(e) å hente</p>";
-        } else {
-            while($row = $result->fetch_object()) {
-                echo "<tr>";
+    if (!$result) {
+        echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
+    } elseif ($db->affected_rows == 0) {
+        echo "<p class='cancelation'>Ingen utøver(e) å hente</p>";
+    } else {
+        while ($row = $result->fetch_object()) {
+            echo "<tr>";
+            echo "
+                <td>" . $row->Firstname . "</td>
+                <td>" . $row->Lastname . "</td>
+                <td>" . $row->Address . "</td>
+                <td>" . $row->Zip . "</td>
+                <td>" . $row->City . "</td>
+                <td>" . $row->Phone . "</td>
+                <td>" . $row->Nationality . "</td>
+                ";
+            if ($_SESSION["loggedIn"]) {
                 echo "
-                <td>".$row->Firstname."</td>
-                <td>".$row->Lastname."</td>
-                <td>".$row->Address."</td>
-                <td>".$row->Zip."</td>
-                <td>".$row->City."</td>
-                <td>".$row->Phone."</td>
-                <td>".$row->Nationality."</td>
                 <td>
                     <form action='signupathletes.php' method='post'>
-                    <button class='btn' name='athlete' value='".$row->Id."'>Legg til</button>
+                    <button class='btn' name='athlete' value='" . $row->Id . "'>Legg til</button>
                     </form>
                 </td>";
-                echo "</tr>";
             }
+            echo "</tr>";
         }
-
-        $db->close();
     }
 
-    function showSpectators() {
+    $db->close();
+}
 
-        $db = connectToDatabase();
+function showSpectators()
+{
 
-        $stmt = "select * from spectator";
+    $db = connectToDatabase();
 
-        $result = $db->query($stmt);
+    $stmt = "select * from spectator";
 
-        if(!$result) {
-            echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
-        } elseif($db->affected_rows == 0) {
-            echo "<p class='cancelation'>Ingen tilskuer(e) å hente</p>";
-        } else {
-            while($row = $result->fetch_object()) {
-                echo "<tr>";
+    $result = $db->query($stmt);
+
+    if (!$result) {
+        echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
+    } elseif ($db->affected_rows == 0) {
+        echo "<p class='cancelation'>Ingen tilskuer(e) å hente</p>";
+    } else {
+        while ($row = $result->fetch_object()) {
+            echo "<tr>";
+            echo "
+                <td>" . $row->Firstname . "</td>
+                <td>" . $row->Lastname . "</td>
+                <td>" . $row->Address . "</td>
+                <td>" . $row->Zip . "</td>
+                <td>" . $row->City . "</td>
+                <td>" . $row->Phone . "</td>
+                <td>" . $row->Ticket . "</td>
+                ";
+            if ($_SESSION["loggedIn"]) {
                 echo "
-                <td>".$row->Firstname."</td>
-                <td>".$row->Lastname."</td>
-                <td>".$row->Address."</td>
-                <td>".$row->Zip."</td>
-                <td>".$row->City."</td>
-                <td>".$row->Phone."</td>
-                <td>".$row->Ticket."</td>
                 <td>
                     <form action='signupspectator.php' method='post'>
-                    <button class='btn' name='spectator' value='".$row->Id."'>Legg til</button>
+                    <button class='btn' name='spectator' value='" . $row->Id . "'>Legg til</button>
                     </form>
                 </td>";
-                echo "</tr>";
             }
+            echo "</tr>";
         }
-
-        $db->close();
     }
 
-    function showCompetitions() {
+    $db->close();
+}
 
-        $db = connectToDatabase();
+function showCompetitions()
+{
 
-        $stmt = "select * from competition";
+    $db = connectToDatabase();
 
-        $result = $db->query($stmt);
+    $stmt = "select * from competition";
 
-        if(!$result) {
-            echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
-        } elseif($db->affected_rows == 0) {
-            echo "<p class='cancelation'>Ingen øvelse(r) å hente</p>";
-        } else {
-            while($row = $result->fetch_object()) {
-                echo "<tr>";
-                echo "
-                <td>".$row->Time."</td>
-                <td>".$row->Type."</td>
-                <td>".$row->Place."</td>
+    $result = $db->query($stmt);
+
+    if (!$result) {
+        echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
+    } elseif ($db->affected_rows == 0) {
+        echo "<p class='cancelation'>Ingen øvelse(r) å hente</p>";
+    } else {
+        while ($row = $result->fetch_object()) {
+            echo "<tr>";
+            echo "
+                <td>" . $row->Time . "</td>
+                <td>" . $row->Type . "</td>
+                <td>" . $row->Place . "</td>
                 <td>
                     <form action='competitioninfo.php' method='post'>
-                        <button class='btn' name='competition' value='".$row->Id."'>Info</button>
+                        <button class='btn' name='competition' value='" . $row->Id . "'>Info</button>
                     </form>
-                </td>
+                </td>";
+
+            if ($_SESSION["loggedIn"]) {
+                echo "
                 <td>
                     <form action='changecompetition.php' method='post'>
-                        <button class='btn' name='change' value='".$row->Id."'>Endre</button>
+                        <button class='btn' name='change' value='" . $row->Id . "'>Endre</button>
                     </form>
                 </td>
                 ";
-                echo "</tr>";
             }
+            echo "</tr>";
         }
-
-        $db->close();
     }
 
-
-    // function getAthlete($id) {
-
-    //     $db = connectToDatabase();
-
-    //     $stmt = "select * from athlete where Id = '$id'";
-
-    //     $result = $db->query($stmt);
-
-    //     if(!$result) {
-    //         echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
-    //     } elseif($db->affected_rows == 0) {
-    //         echo "<p class='cancelation'>Ingen utøver(e) å hente</p>";
-    //     } else {
-    //         return $result->fetch_object();
-    //     }
-
-    //     $db->close();
-    // }
+    $db->close();
+}
 
 
-    // function getCompetition($id) {
+// function getAthlete($id) {
 
-    //     $db = connectToDatabase();
+//     $db = connectToDatabase();
 
-    //     $stmt = "select * from competition where Id = '$id'";
+//     $stmt = "select * from athlete where Id = '$id'";
 
-    //     $result = $db->query($stmt);
+//     $result = $db->query($stmt);
 
-    //     if(!$result) {
-    //         echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
-    //     } elseif($db->affected_rows == 0) {
-    //         echo "<p class='cancelation'>Ingen øvelser å hente</p>";
-    //     } else {
-    //         return $result->fetch_object();
-    //     }
+//     if(!$result) {
+//         echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
+//     } elseif($db->affected_rows == 0) {
+//         echo "<p class='cancelation'>Ingen utøver(e) å hente</p>";
+//     } else {
+//         return $result->fetch_object();
+//     }
 
-    //     $db->close();
-    // }
+//     $db->close();
+// }
 
-    // function addAthleteToCompetition($athleteId, $competitionId) {
 
-    //     $db = connectToDatabase();
+// function getCompetition($id) {
 
-    //     $stmt = "insert into competitionAthlete (athleteId, competitionId)";
-    //     $stmt .= " values ('$athleteId', '$competitionId')";
+//     $db = connectToDatabase();
 
-    //     $result = $db->query($stmt);
+//     $stmt = "select * from competition where Id = '$id'";
 
-    //     if(!$result) {
-    //         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
-    //     } elseif($db->affected_rows == 0) {
-    //         echo "<p class='cancelation'>Ingen utøver lagt til</p>";
-    //     } else {
-    //         echo "<p class='confirmation'>Utøver lagt til</p>";
-    //     }
+//     $result = $db->query($stmt);
 
-    //     $db->close();
-    // }
+//     if(!$result) {
+//         echo "<p class='cancelation'>Feil, fikk ikke hentet data ifra databasen</p>";
+//     } elseif($db->affected_rows == 0) {
+//         echo "<p class='cancelation'>Ingen øvelser å hente</p>";
+//     } else {
+//         return $result->fetch_object();
+//     }
 
-    // function deleteAthleteFromCompetition($athleteId, $competitionId) {
+//     $db->close();
+// }
 
-    //     $db = connectToDatabase();
+// function addAthleteToCompetition($athleteId, $competitionId) {
 
-    //     $stmt = "delete from competitionAthlete";
-    //     $stmt .= " where athleteId = '$athleteId' AND competitionId = '$competitionId';";
+//     $db = connectToDatabase();
 
-    //     $result = $db->query($stmt);
+//     $stmt = "insert into competitionAthlete (athleteId, competitionId)";
+//     $stmt .= " values ('$athleteId', '$competitionId')";
 
-    //     if(!$result) {
-    //         echo "<p class='cancelation'>Feil, fikk ikke fjerne fra databasen</p>";
-    //     } elseif($db->affected_rows == 0) {
-    //         echo "<p class='cancelation'>Ingen utøver fjernet</p>";
-    //     } else {
-    //         echo "<p class='cancelation'>Utøver fjernet</p>";
-    //     }
+//     $result = $db->query($stmt);
 
-    //     $db->close();
-    // }
+//     if(!$result) {
+//         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
+//     } elseif($db->affected_rows == 0) {
+//         echo "<p class='cancelation'>Ingen utøver lagt til</p>";
+//     } else {
+//         echo "<p class='confirmation'>Utøver lagt til</p>";
+//     }
 
-    // function updateCompetition($id, $time, $type, $place) {
+//     $db->close();
+// }
 
-    //     $db = connectToDatabase();
+// function deleteAthleteFromCompetition($athleteId, $competitionId) {
 
-    //     $stmt = "update competition";
-    //     $stmt .= " set time = '$time', type = '$type', place = '$place'";
-    //     $stmt .= "where id = $id;";
+//     $db = connectToDatabase();
 
-    //     $result = $db->query($stmt);
+//     $stmt = "delete from competitionAthlete";
+//     $stmt .= " where athleteId = '$athleteId' AND competitionId = '$competitionId';";
 
-    //     if(!$result) {
-    //         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
-    //     } elseif($db->affected_rows == 0) {
-    //         echo "<p class='cancelation'>Ingen rader ble oppdatert</p>";
-    //     } else {
-    //         echo "<p class='confirmation'>Øvelse oppdatert</p>";
-    //     }
+//     $result = $db->query($stmt);
 
-    //     $db->close();
-    // }
+//     if(!$result) {
+//         echo "<p class='cancelation'>Feil, fikk ikke fjerne fra databasen</p>";
+//     } elseif($db->affected_rows == 0) {
+//         echo "<p class='cancelation'>Ingen utøver fjernet</p>";
+//     } else {
+//         echo "<p class='cancelation'>Utøver fjernet</p>";
+//     }
 
-    
-    // function competitionSignedUpFor($athlete) {
+//     $db->close();
+// }
 
-    //     $db = connectToDatabase();
+// function updateCompetition($id, $time, $type, $place) {
 
-    //     $stmt = "select competition.* FROM competition ";;
-    //     $stmt .= "WHERE id IN ";
-    //     $stmt .= "(SELECT competitionId FROM competitionAthlete WHERE athleteId = '$athlete');";
+//     $db = connectToDatabase();
 
-    //     $result = $db->query($stmt);
+//     $stmt = "update competition";
+//     $stmt .= " set time = '$time', type = '$type', place = '$place'";
+//     $stmt .= "where id = $id;";
 
-    //     if(!$result) {
-    //         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
-    //     } elseif($db->affected_rows == 0) {
-    //         echo "<p class='cancelation'>Utøveren er ikke påmeldt noen øvelser enda</p>";
-    //     } else {
-    //         while($row = $result->fetch_object()) {
-    //             echo "<tr>";
-    //             echo "
-    //             <td>".$row->Time."</td>
-    //             <td>".$row->Type."</td>
-    //             <td>".$row->Place."</td>
-    //             <td>
-    //                 <form action='' method='post'>
-    //                     <button class='btn-cancel' name='signoff' value='".$row->Id."'>Meld av</button>
-    //                 </form>
-    //             </td>
-    //             ";
-    //             echo "</tr>";
-    //         }
-    //     }
+//     $result = $db->query($stmt);
 
-    //     $db->close();
-    // }
+//     if(!$result) {
+//         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
+//     } elseif($db->affected_rows == 0) {
+//         echo "<p class='cancelation'>Ingen rader ble oppdatert</p>";
+//     } else {
+//         echo "<p class='confirmation'>Øvelse oppdatert</p>";
+//     }
 
-    // function competitionNotSignedUpFor($athlete) {
+//     $db->close();
+// }
 
-    //     $db = connectToDatabase();
 
-    //     $stmt = "select competition.* FROM competition ";;
-    //     $stmt .= "WHERE id NOT IN ";
-    //     $stmt .= "(SELECT competitionId FROM competitionAthlete WHERE athleteId = '$athlete');";
+// function competitionSignedUpFor($athlete) {
 
-    //     $result = $db->query($stmt);
+//     $db = connectToDatabase();
 
-    //     if(!$result) {
-    //         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
-    //     } elseif($db->affected_rows == 0) {
-    //         echo "<p class='cancelation'>Utøveren er meldt på alle øvelser</p>";
-    //     } else {
-    //         while($row = $result->fetch_object()) {
-    //             echo "<tr>";
-    //             echo "
-    //             <td>".$row->Time."</td>
-    //             <td>".$row->Type."</td>
-    //             <td>".$row->Place."</td>
-    //             <td>
-    //                 <form action='' method='post'>
-    //                     <button class='btn' name='signup' value='".$row->Id."'>Meld på</button>
-    //                 </form>
-    //             </td>
-    //             ";
-    //             echo "</tr>";
-    //         }
-    //     }
+//     $stmt = "select competition.* FROM competition ";;
+//     $stmt .= "WHERE id IN ";
+//     $stmt .= "(SELECT competitionId FROM competitionAthlete WHERE athleteId = '$athlete');";
 
-    //     $db->close();
-    // }
+//     $result = $db->query($stmt);
 
-    // function athletesSignedUp($competition) {
+//     if(!$result) {
+//         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
+//     } elseif($db->affected_rows == 0) {
+//         echo "<p class='cancelation'>Utøveren er ikke påmeldt noen øvelser enda</p>";
+//     } else {
+//         while($row = $result->fetch_object()) {
+//             echo "<tr>";
+//             echo "
+//             <td>".$row->Time."</td>
+//             <td>".$row->Type."</td>
+//             <td>".$row->Place."</td>
+//             <td>
+//                 <form action='' method='post'>
+//                     <button class='btn-cancel' name='signoff' value='".$row->Id."'>Meld av</button>
+//                 </form>
+//             </td>
+//             ";
+//             echo "</tr>";
+//         }
+//     }
 
-    //     $db = connectToDatabase();
+//     $db->close();
+// }
 
-    //     $stmt = "select athlete.* FROM athlete ";;
-    //     $stmt .= "WHERE id IN ";
-    //     $stmt .= "(SELECT athleteId FROM competitionAthlete WHERE competitionId = '$competition');";
+// function competitionNotSignedUpFor($athlete) {
 
-    //     $result = $db->query($stmt);
+//     $db = connectToDatabase();
 
-    //     if(!$result) {
-    //         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
-    //     } elseif($db->affected_rows == 0) {
-    //         echo "<p class='cancelation'>Ingen utøvere er meldt på denne øvelsen</p>";
-    //     } else {
-    //         while($row = $result->fetch_object()) {
-    //             echo "<tr>";
-    //             echo "
-    //             <td>".$row->Firstname."</td>
-    //             <td>".$row->Lastname."</td>
-    //             <td>".$row->Address."</td>
-    //             <td>".$row->Zip."</td>
-    //             <td>".$row->City."</td>
-    //             <td>".$row->Phone."</td>
-    //             <td>".$row->Nationality."</td>
-    //             ";
-    //             echo "</tr>";
-    //         }
-    //     }
-    //     $db->close();
-    // }
+//     $stmt = "select competition.* FROM competition ";;
+//     $stmt .= "WHERE id NOT IN ";
+//     $stmt .= "(SELECT competitionId FROM competitionAthlete WHERE athleteId = '$athlete');";
 
-    // function updateCompetitionAthlete($competitionId) {
-    //     $db = connectToDatabase();
-    
-    //     $stmt = "DELETE FROM competitionAthlete";
-    //     $stmt .= " where competitionID = '$competitionId'";
-    
-    //     $result = $db->query($stmt);
-    
-    //     if(!$result) {
-    //         echo "<p class='cancelation'>[updateCompetitionAthlete]Feil, fikk ikke fjerne fra databasen<br/></p>";
-    //     } elseif($db->affected_rows == 0) {
-    //         echo "<p class='cancelation'>Ingen øvelser/utøvere er fjernet</p>";
-    //     } else {
-    //         echo "<p class='cancelation'>Øvelse og utøvere fjernet</p>";
-    //     }
-    
-    //     $db->close();
-    //     session_destroy();
-    // }
+//     $result = $db->query($stmt);
+
+//     if(!$result) {
+//         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
+//     } elseif($db->affected_rows == 0) {
+//         echo "<p class='cancelation'>Utøveren er meldt på alle øvelser</p>";
+//     } else {
+//         while($row = $result->fetch_object()) {
+//             echo "<tr>";
+//             echo "
+//             <td>".$row->Time."</td>
+//             <td>".$row->Type."</td>
+//             <td>".$row->Place."</td>
+//             <td>
+//                 <form action='' method='post'>
+//                     <button class='btn' name='signup' value='".$row->Id."'>Meld på</button>
+//                 </form>
+//             </td>
+//             ";
+//             echo "</tr>";
+//         }
+//     }
+
+//     $db->close();
+// }
+
+// function athletesSignedUp($competition) {
+
+//     $db = connectToDatabase();
+
+//     $stmt = "select athlete.* FROM athlete ";;
+//     $stmt .= "WHERE id IN ";
+//     $stmt .= "(SELECT athleteId FROM competitionAthlete WHERE competitionId = '$competition');";
+
+//     $result = $db->query($stmt);
+
+//     if(!$result) {
+//         echo "<p class='cancelation'>Feil, fikk ikke oppdatert databasen</p>";
+//     } elseif($db->affected_rows == 0) {
+//         echo "<p class='cancelation'>Ingen utøvere er meldt på denne øvelsen</p>";
+//     } else {
+//         while($row = $result->fetch_object()) {
+//             echo "<tr>";
+//             echo "
+//             <td>".$row->Firstname."</td>
+//             <td>".$row->Lastname."</td>
+//             <td>".$row->Address."</td>
+//             <td>".$row->Zip."</td>
+//             <td>".$row->City."</td>
+//             <td>".$row->Phone."</td>
+//             <td>".$row->Nationality."</td>
+//             ";
+//             echo "</tr>";
+//         }
+//     }
+//     $db->close();
+// }
+
+// function updateCompetitionAthlete($competitionId) {
+//     $db = connectToDatabase();
+
+//     $stmt = "DELETE FROM competitionAthlete";
+//     $stmt .= " where competitionID = '$competitionId'";
+
+//     $result = $db->query($stmt);
+
+//     if(!$result) {
+//         echo "<p class='cancelation'>[updateCompetitionAthlete]Feil, fikk ikke fjerne fra databasen<br/></p>";
+//     } elseif($db->affected_rows == 0) {
+//         echo "<p class='cancelation'>Ingen øvelser/utøvere er fjernet</p>";
+//     } else {
+//         echo "<p class='cancelation'>Øvelse og utøvere fjernet</p>";
+//     }
+
+//     $db->close();
+//     session_destroy();
+// }
 ?>

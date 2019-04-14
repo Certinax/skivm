@@ -1,5 +1,11 @@
 <?php
+include("session/sessioncontrol.php");
 include('classes/person.php');
+include("login/logic/login.php");
+include("login/modal/modal.php");
+if (!$_SESSION["loggedIn"]) {
+    header('Location:index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +17,8 @@ include('classes/person.php');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/form-style.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
     <title>Ski-VM | Legg til utøver</title>
 </head>
@@ -24,6 +32,15 @@ include('classes/person.php');
             <header class="showcase">
                 <h1>Ski-VM Sefeeld - Østerrike 2019</h1>
             </header>
+        </div>
+
+        <!-- Default nav-bar -->
+        <div class="main-nav">
+            <div class="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+                <div class="btn-line"></div>
+            </div>
         </div>
 
         <!-- Navigation bar -->
@@ -102,6 +119,8 @@ include('classes/person.php');
             <p>Certinax &copy; 2019 | Mathias Lund Ahrn s319217</p>
         </footer>
     </div>
-</body>
 
-</html> 
+</body>
+<script src="js/menu.js"></script>
+
+</html>

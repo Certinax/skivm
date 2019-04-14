@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  background: rgb(240, 240, 240);
+  background: var(--light);
   margin: 30px 50px;
   line-height: 1.4;
 }
@@ -30,7 +30,16 @@ body {
   border: 0;
 }
 
-.btn:hover {
+.btn-cancel {
+  background-color: var(--cancel);
+  color: var(--light);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+.btn:hover,
+.btn-cancel:hover {
   transition: ease 0.1s;
   filter: brightness(125%);
   cursor: pointer;
@@ -43,6 +52,37 @@ img {
 .wrapper {
   display: grid;
   grid-gap: 20px;
+}
+
+/* Menu btn */
+.menu-btn {
+  display: block;
+  position: relative;
+  float: right;
+  z-index: 500;
+  right: 35px;
+  top: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.menu-btn .btn-line {
+  width: 28px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background: black;
+  transition: all 0.3s ease-out;
+}
+.menu-btn.close {
+  transform: rotate(-90deg);
+}
+.menu-btn.close .btn-line:nth-child(1) {
+  transform: translate(0px, 8px) rotate(45deg);
+}
+.menu-btn.close .btn-line:nth-child(2) {
+  background: none;
+}
+.menu-btn.close .btn-line:nth-child(3) {
+  transform: translate(0px, -8px) rotate(-45deg);
 }
 
 /* Navigation */
@@ -116,6 +156,10 @@ img {
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
+
+/* .boxes.show {
+  display: grid;
+} */
 
 .box {
   background: var(--primary);
