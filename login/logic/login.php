@@ -11,10 +11,11 @@ function notLoggedIn()
 {
     echo "
     <legend>Login</login>
-    <input type='text' name='username' placeholder='Username'>
-    <input type='password' name='password' placeholder='Password'>
+    <input id='usernameLogin' type='text' name='username' placeholder='Username'>
+    <input id='passwordLogin' type='password' name='password' placeholder='Password'>
     <button id='login' class='btn' value='submit' name='submit'>Login</button>
     ";
+    login();
 }
 
 ?>
@@ -52,16 +53,16 @@ function login()
                 // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
                 // echo session_id();
             } else {
-                echo "[PHP-Message] Passordet er ikke korrekt";
+                echo "<p style='color:red'>[PHP-Message] Passordet er ikke korrekt</p>";
             }
         } else {
-            echo "[PHP-Message] Fant ikke bruker";
+            echo "<p style='color:red'>[PHP-Message] Fant ikke bruker</p>";
         }
     } else {
         if (!empty($_POST["submit"])) {
             echo "<p style='color:red'>*[PHP-Message] Du må fylle ut alle felter</p>";
         } else {
-            echo "<p>[PHP-Message]Fyll ut informasjon</p>";
+            echo "<p>[PHP-Message] Fyll ut informasjon</p>";
         }
     }
 }

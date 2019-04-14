@@ -28,6 +28,10 @@ Det skal også lages validering av inputfeltene for den nye registreringssiden. 
 
 - [ ] Clientside inputvalidering med javascript
 
+## Known bugs
+
+- Loginskjermen fra modal forsvinner selv om det er mislykket innlogging
+
 # Webprogrammering - Obligatorisk oppgave 2
 
 Det skal lages et system for å holde rede på hvilke øvelser som avholdes under ski-VM i en database. Det skal lagres hvilke utøvere som deltar på de ulike øvelsene. Det skal også kobles publikum til de ulike øvelsene (det er dog ikke nødvendig å lage en bestillingsløsning).

@@ -13,10 +13,8 @@
                         if ($_SESSION["loggedIn"]) {
                             isLoggedin();
                         } else {
-                            login();
                             notLoggedIn();
                         }
-
                         ?>
                     </fieldset>
                 </form>

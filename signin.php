@@ -15,7 +15,9 @@ include("login/modal/modal.php");
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/form-style.css">
+    <link rel="stylesheet" href="css/mongo.css">
     <link rel="shortcut icon" href="img/skier.ico" type="image/x-icon">
+    <script src="js/validation/inputvalidation.js"></script>
     <title>Ski-VM | Signin</title>
 </head>
 
@@ -38,6 +40,8 @@ include("login/modal/modal.php");
                 <div class="btn-line"></div>
             </div>
         </div>
+
+        <?php loginStatus() ?>
 
         <!-- Navigation bar -->
         <div class="main-nav">
@@ -67,7 +71,6 @@ include("login/modal/modal.php");
                         if ($_SESSION["loggedIn"]) {
                             isLoggedin();
                         } else {
-                            login();
                             notLoggedIn();
                             if(isset($_SESSION["route"]) && $_SESSION["loggedIn"]) {
                                 header("Location:" . $_SESSION["route"]);
@@ -97,5 +100,6 @@ include("login/modal/modal.php");
 
 </body>
 <script src="js/menu.js"></script>
+
 
 </html>

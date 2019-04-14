@@ -3,7 +3,7 @@ const menuBtn = document.querySelector(".menu-btn");
 const modal = document.getElementById("simpleModal");
 const modalBtn = document.getElementById("modalBtn");
 const closeBtn = document.getElementById("closeBtn_");
-const loginBtn = document.getElementById("login");
+//const loginBtn = document.getElementById("login");
 const logoutBtn = document.getElementById("logout");
 
 // Set initial state of menu
@@ -48,14 +48,14 @@ window.addEventListener("click", e => {
   }
 });
 
-loginBtn.addEventListener("click", () => {
-  closeModal();
-  closeMenuBtn();
-  showMenu = false;
-});
+// loginBtn.addEventListener("click", () => {
+//   closeModal();
+//   closeMenuBtn();
+//   showMenu = false;
+// });
 
-logoutBtn.addEventListener("click", () => {
-  closeModal();
-  closeMenuBtn();
-  showMenu = false;
-});
+// logoutBtn.addEventListener("click", () => {
+//   closeModal();
+//   closeMenuBtn();
+//   showMenu = false;
+// });
