@@ -30,7 +30,7 @@ Det skal også lages validering av inputfeltene for den nye registreringssiden. 
 
 ## Known bugs
 
-- Loginskjermen fra modal forsvinner selv om det er mislykket innlogging
+- Loginskjermen fra modal forsvinner selv om det er mislykket innlogging (må åpnes manuelt etter mislykkede innloggingsforsøk)
 
 # Webprogrammering - Obligatorisk oppgave 2
 
