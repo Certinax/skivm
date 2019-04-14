@@ -2,8 +2,8 @@
 -- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 14. Apr, 2019 16:24 PM
+-- Host: localhost
+-- Generation Time: 24. Mar, 2019 22:50 PM
 -- Tjener-versjon: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -21,27 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `vm_ski`
 --
-
--- --------------------------------------------------------
-
---
--- Tabellstruktur for tabell `administrator`
---
-
-CREATE TABLE `administrator` (
-  `id` int(100) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `firstname` varchar(50) NOT NULL,
-  `lastname` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dataark for tabell `administrator`
---
-
-INSERT INTO `administrator` (`id`, `username`, `firstname`, `lastname`, `password`) VALUES
-(17, 'sondre', 'sondre', 'morgedal', '$2y$10$9D.kRkAwMlS8rbXqhizht.fYRv6bSHrME7o3FEl5yfggk7C53J1Ee');
 
 -- --------------------------------------------------------
 
@@ -70,8 +49,7 @@ INSERT INTO `athlete` (`Id`, `Firstname`, `Lastname`, `Address`, `Zip`, `City`, 
 (4, 'Johannes', 'HÃ¸sfloth KlÃ¦bo', 'ByÃ¥svn 15', '7865', 'Trondheim', '41414234', 'Norge'),
 (5, 'Stina', 'Nilsson', 'SkogsÃ¤tra 19', '8888', 'VÃ¤rmland', '98899889', 'Sverige'),
 (6, 'Frida', 'Karlsson', 'Jamngatan 2', '7863', 'Malung', '91912341', 'Sverige'),
-(7, 'BjÃ¸rn', 'DÃ¦hlie', 'Hagastuveien 17', '2910', 'Nannestad', '45672819', 'Norge'),
-(8, 'Petter', 'Eliassen', 'Skogveien 13', '5312', 'Ã˜len', '96965656', 'Norge');
+(7, 'BjÃ¸rn', 'DÃ¦hlie', 'Hagastuveien 17', '2910', 'Nannestad', '45672819', 'Norge');
 
 -- --------------------------------------------------------
 
@@ -100,20 +78,20 @@ INSERT INTO `competition` (`Id`, `Time`, `Type`, `Place`) VALUES
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur for tabell `competitionathlete`
+-- Tabellstruktur for tabell `competitionAthlete`
 --
 
-CREATE TABLE `competitionathlete` (
+CREATE TABLE `competitionAthlete` (
   `Id` int(11) NOT NULL,
   `competitionID` int(11) NOT NULL,
   `athleteID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dataark for tabell `competitionathlete`
+-- Dataark for tabell `competitionAthlete`
 --
 
-INSERT INTO `competitionathlete` (`Id`, `competitionID`, `athleteID`) VALUES
+INSERT INTO `competitionAthlete` (`Id`, `competitionID`, `athleteID`) VALUES
 (37, 2, 2),
 (38, 5, 2),
 (39, 3, 2),
@@ -124,29 +102,25 @@ INSERT INTO `competitionathlete` (`Id`, `competitionID`, `athleteID`) VALUES
 (44, 5, 4),
 (45, 3, 5),
 (46, 17, 5),
-(47, 2, 5),
-(48, 17, 2),
-(49, 2, 8),
-(50, 17, 8),
-(51, 5, 8);
+(47, 2, 5);
 
 -- --------------------------------------------------------
 
 --
--- Tabellstruktur for tabell `competitionspectator`
+-- Tabellstruktur for tabell `competitionSpectator`
 --
 
-CREATE TABLE `competitionspectator` (
+CREATE TABLE `competitionSpectator` (
   `Id` int(11) NOT NULL,
   `competitionID` int(11) NOT NULL,
   `spectatorID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dataark for tabell `competitionspectator`
+-- Dataark for tabell `competitionSpectator`
 --
 
-INSERT INTO `competitionspectator` (`Id`, `competitionID`, `spectatorID`) VALUES
+INSERT INTO `competitionSpectator` (`Id`, `competitionID`, `spectatorID`) VALUES
 (16, 2, 2),
 (17, 2, 3),
 (18, 15, 3),
@@ -192,13 +166,6 @@ INSERT INTO `spectator` (`Id`, `Firstname`, `Lastname`, `Address`, `Zip`, `City`
 --
 
 --
--- Indexes for table `administrator`
---
-ALTER TABLE `administrator`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
-
---
 -- Indexes for table `athlete`
 --
 ALTER TABLE `athlete`
@@ -211,15 +178,15 @@ ALTER TABLE `competition`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `competitionathlete`
+-- Indexes for table `competitionAthlete`
 --
-ALTER TABLE `competitionathlete`
+ALTER TABLE `competitionAthlete`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `competitionspectator`
+-- Indexes for table `competitionSpectator`
 --
-ALTER TABLE `competitionspectator`
+ALTER TABLE `competitionSpectator`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -233,34 +200,28 @@ ALTER TABLE `spectator`
 --
 
 --
--- AUTO_INCREMENT for table `administrator`
---
-ALTER TABLE `administrator`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
 -- AUTO_INCREMENT for table `athlete`
 --
 ALTER TABLE `athlete`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `competition`
 --
 ALTER TABLE `competition`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT for table `competitionathlete`
+-- AUTO_INCREMENT for table `competitionAthlete`
 --
-ALTER TABLE `competitionathlete`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+ALTER TABLE `competitionAthlete`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
--- AUTO_INCREMENT for table `competitionspectator`
+-- AUTO_INCREMENT for table `competitionSpectator`
 --
-ALTER TABLE `competitionspectator`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+ALTER TABLE `competitionSpectator`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `spectator`

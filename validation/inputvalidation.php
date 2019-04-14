@@ -47,7 +47,8 @@ function nameValidation($firstname, $lastname)
 
 function passwordValidation($password, $re_password)
 {
-    $regex = '/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/';
+    // $regex = '/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/';
+    $regex = '/^(?=.*[A-Za-z])[A-Za-z]{8,}$/';
     $errmsg = "";
     $error = 0;
 
